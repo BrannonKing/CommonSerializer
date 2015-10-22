@@ -6,7 +6,6 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{363E19B3-F20F-42FF-9C0E-8E929EB9D79A}"
 	ProjectSection(SolutionItems) = preProject
 		global.json = global.json
-		..\global.json = ..\global.json
 		NuGet.Config = NuGet.Config
 	EndProjectSection
 EndProject
@@ -14,9 +13,9 @@ Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "CommonSerializer.Newtonsoft
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "CommonSerializer", "CommonSerializer\CommonSerializer.xproj", "{596A0D6A-0C3F-481B-AC8C-1B773A3CCD10}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "CommonSerializer.Protobuf-net", "..\CommonSerializer.Protobuf-net\CommonSerializer.Protobuf-net.xproj", "{D97F8AB4-203F-44F9-A808-AA0CF23F80AD}"
-EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "CommonSerializer.Tests", "CommonSerializer.Tests\CommonSerializer.Tests.xproj", "{2BE300EC-3975-4DCA-B505-51F3D503A5E0}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "CommonSerializer.Protobuf-net", "CommonSerializer.Protobuf-net\CommonSerializer.Protobuf-net.xproj", "{D97F8AB4-203F-44F9-A808-AA0CF23F80AD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -32,14 +31,14 @@ Global
 		{596A0D6A-0C3F-481B-AC8C-1B773A3CCD10}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{596A0D6A-0C3F-481B-AC8C-1B773A3CCD10}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{596A0D6A-0C3F-481B-AC8C-1B773A3CCD10}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D97F8AB4-203F-44F9-A808-AA0CF23F80AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D97F8AB4-203F-44F9-A808-AA0CF23F80AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D97F8AB4-203F-44F9-A808-AA0CF23F80AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D97F8AB4-203F-44F9-A808-AA0CF23F80AD}.Release|Any CPU.Build.0 = Release|Any CPU
 		{2BE300EC-3975-4DCA-B505-51F3D503A5E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2BE300EC-3975-4DCA-B505-51F3D503A5E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2BE300EC-3975-4DCA-B505-51F3D503A5E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2BE300EC-3975-4DCA-B505-51F3D503A5E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D97F8AB4-203F-44F9-A808-AA0CF23F80AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D97F8AB4-203F-44F9-A808-AA0CF23F80AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D97F8AB4-203F-44F9-A808-AA0CF23F80AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D97F8AB4-203F-44F9-A808-AA0CF23F80AD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
