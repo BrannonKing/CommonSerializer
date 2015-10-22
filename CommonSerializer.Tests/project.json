@@ -1,0 +1,36 @@
+﻿{
+	"version": "1.0.0-*",
+	"description": "CommonSerializer.Tests Class Library",
+	"authors": [ "Brannon King" ],
+	"tags": [ "" ],
+	"projectUrl": "",
+	"licenseUrl": "",
+
+	"dependencies": {
+		"CommonSerializer": "1.0.0-*",
+		"CommonSerializer.Newtonsoft": "1.0.0-*",
+		"CommonSerializer.Protobuf-net": "1.0.0-*",
+		"xunit": "2.1.0",
+		"xunit.runner.dnx": "2.1.0-beta6-build191"
+	},
+	"commands": {
+		"test": "xunit.runner.dnx"
+	},
+	"frameworks": {
+		"dnx451": {
+			"frameworkAssemblies": {
+				"System.Runtime.Serialization": "4.0.0.0"
+			}
+		},
+		"dnxcore50": {
+			"dependencies": {
+				"Microsoft.CSharp": "4.0.1-beta-*",
+				"System.Collections": "4.0.11-beta-*",
+				"System.Linq": "4.0.1-beta-*",
+				"System.Runtime": "4.0.21-beta-*",
+				"System.Threading": "4.0.11-beta-*",
+				"System.Runtime.Serialization.Primitives": "4.0.11-beta-*"
+			}
+		}
+	}
+}
