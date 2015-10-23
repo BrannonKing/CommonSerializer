@@ -301,12 +301,12 @@
         "framework": "DNXCore,Version=v5.0",
         "dependencies": {
           "CommonSerializer": "1.0.0",
-          "Microsoft.CSharp": "4.0.1-beta-23409",
+          "Microsoft.CSharp": "4.0.1-beta",
           "protobuf-portable-net": "2.0.0.668",
-          "System.Collections": "4.0.11-beta-23409",
-          "System.Linq": "4.0.1-beta-23409",
-          "System.Runtime": "4.0.21-beta-23409",
-          "System.Threading": "4.0.11-beta-23409"
+          "System.Collections": "4.0.11-beta",
+          "System.Linq": "4.0.1-beta",
+          "System.Runtime": "4.0.21-beta",
+          "System.Threading": "4.0.11-beta"
         }
       },
       "Microsoft.CSharp/4.0.1-beta-23409": {
@@ -1889,12 +1889,12 @@
         "framework": "DNXCore,Version=v5.0",
         "dependencies": {
           "CommonSerializer": "1.0.0",
-          "Microsoft.CSharp": "4.0.1-beta-23409",
+          "Microsoft.CSharp": "4.0.1-beta",
           "protobuf-portable-net": "2.0.0.668",
-          "System.Collections": "4.0.11-beta-23409",
-          "System.Linq": "4.0.1-beta-23409",
-          "System.Runtime": "4.0.21-beta-23409",
-          "System.Threading": "4.0.11-beta-23409"
+          "System.Collections": "4.0.11-beta",
+          "System.Linq": "4.0.1-beta",
+          "System.Runtime": "4.0.21-beta",
+          "System.Threading": "4.0.11-beta"
         }
       },
       "Microsoft.CSharp/4.0.1-beta-23409": {
@@ -3206,12 +3206,12 @@
         "framework": "DNXCore,Version=v5.0",
         "dependencies": {
           "CommonSerializer": "1.0.0",
-          "Microsoft.CSharp": "4.0.1-beta-23409",
+          "Microsoft.CSharp": "4.0.1-beta",
           "protobuf-portable-net": "2.0.0.668",
-          "System.Collections": "4.0.11-beta-23409",
-          "System.Linq": "4.0.1-beta-23409",
-          "System.Runtime": "4.0.21-beta-23409",
-          "System.Threading": "4.0.11-beta-23409"
+          "System.Collections": "4.0.11-beta",
+          "System.Linq": "4.0.1-beta",
+          "System.Runtime": "4.0.21-beta",
+          "System.Threading": "4.0.11-beta"
         }
       },
       "Microsoft.CSharp/4.0.1-beta-23409": {
@@ -4507,7 +4507,7 @@
     },
     "CommonSerializer.Protobuf-net/1.0.0": {
       "type": "project",
-      "path": "../../CommonSerializer.Protobuf-net/project.json"
+      "path": "../CommonSerializer.Protobuf-net/project.json"
     },
     "Microsoft.CSharp/4.0.1-beta-23409": {
       "type": "package",
