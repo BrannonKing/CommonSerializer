@@ -2,33 +2,29 @@
 using System.IO;
 using System.Reflection;
 using System.Text;
-using ProtoBuf;
-using ProtoBuf.Meta;
+using MsgPack;
+using MsgPack.Serialization;
 
 namespace CommonSerializer.ProtobufNet
 {
 	public class ProtobufCommonSerializer: ICommonSerializer
 	{
-		private readonly RuntimeTypeModel _runtime;
-
-		public ProtobufCommonSerializer(MethodInfo classFactory = null)
+		private readonly SerializationContext _context;
+		public ProtobufCommonSerializer(SerializationContext context)
 		{
-			_runtime = TypeModel.Create();
-			if (classFactory != null)
-				_runtime.SetDefaultFactory(classFactory);
-			RegisterSubtype<ISerializedContainer, ProtobufSerializedContainer>(1);
+			_context = context;
+            RegisterSubtype<ISerializedContainer, MsgPackSerializedContainer>(1); // left off: convert this to a custom serializer
 		}
 
-		public ProtobufCommonSerializer(RuntimeTypeModel runtime)
+		public ProtobufCommonSerializer() : this(SerializationContext.Default)
 		{
-			_runtime = runtime;
 		}
 
 		public string Description
 		{
 			get
 			{
-				return "M. Gravell's Protocol Buffers Implementation";
+				return "MessagePack for CLI";
 			}
 		}
 
@@ -36,7 +32,7 @@ namespace CommonSerializer.ProtobufNet
 		{
 			get
 			{
-				return "Protobuf-net";
+				return "MsgPack";
 			}
 		}
 
@@ -50,7 +46,13 @@ namespace CommonSerializer.ProtobufNet
 
 		public T DeepClone<T>(T t)
 		{
-			return (T)_runtime.DeepClone(t);
+			var serializer = _context.GetSerializer(t.GetType());
+			using(var ms = _streamManager.GetStream("MsgPackClone"))
+			{
+				serializer.Pack(ms, t);
+				ms.Position = 0;
+				return (T)serializer.Unpack(ms);
+			}
 		}
 
 		public object Deserialize(string str, Type type)
@@ -59,9 +61,7 @@ namespace CommonSerializer.ProtobufNet
 				return Deserialize(reader, type);
 		}
 
-#if DNX451 || NET45
 		private static readonly Microsoft.IO.RecyclableMemoryStreamManager _streamManager = new Microsoft.IO.RecyclableMemoryStreamManager();
-#endif
 
 		public object Deserialize(TextReader reader, Type type)
 		{
@@ -69,22 +69,19 @@ namespace CommonSerializer.ProtobufNet
 			if (line == null)
 				return null;
 			var bytes = Convert.FromBase64String(line);
-#if DNX451 || NET45
-			using (var ms = _streamManager.GetStream("ProtobufDeserialize", bytes, 0, bytes.Length))
-#else
-			using (var ms = new MemoryStream(bytes, false))
-#endif
+			using (var ms = _streamManager.GetStream("MsgPackDeserialize", bytes, 0, bytes.Length))
 				return Deserialize(ms, type);
 		}
 
 		public object Deserialize(Stream stream, Type type)
 		{
-			return _runtime.DeserializeWithLengthPrefix(stream, null, type, PrefixStyle.Fixed32, 0);
+			var serializer = _context.GetSerializer(type);
+			return serializer.Unpack(stream);
 		}
 
 		public object Deserialize(ISerializedContainer container, Type type)
 		{
-			var psc = container as ProtobufSerializedContainer;
+			var psc = container as MsgPackSerializedContainer;
 			if (psc == null)
 				throw new ArgumentException("Invalid container type. Use the GenerateContainer method.");
 
@@ -113,12 +110,7 @@ namespace CommonSerializer.ProtobufNet
 
 		public ISerializedContainer GenerateContainer()
 		{
-			return new ProtobufSerializedContainer();
-		}
-
-		public void RegisterSubtype<TBase, TInheritor>(int fieldNumber)
-		{
-			_runtime[typeof(TBase)].AddSubType(fieldNumber, typeof(TInheritor));
+			return new MsgPackSerializedContainer();
 		}
 
 		public string Serialize<T>(T value)
@@ -141,11 +133,7 @@ namespace CommonSerializer.ProtobufNet
 
 		public void Serialize(TextWriter writer, object value, Type type)
 		{
-#if DNX451 || NET45
-			using (var stream = _streamManager.GetStream("ProtobufSerialize"))
-#else
-			using (var stream = new MemoryStream())
-#endif
+			using (var stream = _streamManager.GetStream("MsgPackSerialize"))
 			{
 				Serialize(stream, value, type);
 				stream.Flush();
@@ -161,7 +149,8 @@ namespace CommonSerializer.ProtobufNet
 
 		public void Serialize(Stream stream, object value, Type type)
 		{
-			_runtime.SerializeWithLengthPrefix(stream, value, type, PrefixStyle.Fixed32, 0);
+			var serializer = _context.GetSerializer(type);
+			serializer.Pack(stream, value);
 		}
 
 		public void Serialize<T>(ISerializedContainer container, T value)
@@ -171,7 +160,7 @@ namespace CommonSerializer.ProtobufNet
 
         public void Serialize(ISerializedContainer container, object value, Type type)
 		{
-			var psc = container as ProtobufSerializedContainer;
+			var psc = container as MsgPackSerializedContainer;
 			if (psc == null)
 				throw new ArgumentException("Invalid container type. Use the GenerateContainer method.");
 

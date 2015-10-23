@@ -7,6 +7,15 @@
         "type": "project",
         "framework": ".NETFramework,Version=v4.5"
       },
+      "Microsoft.IO.RecyclableMemoryStream/1.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/net45/Microsoft.IO.RecyclableMemoryStream.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Microsoft.IO.RecyclableMemoryStream.dll": {}
+        }
+      },
       "protobuf-net/2.0.0.668": {
         "type": "package",
         "compile": {
@@ -21,6 +30,15 @@
       "CommonSerializer/1.0.0": {
         "type": "project",
         "framework": "DNX,Version=v4.5.1"
+      },
+      "Microsoft.IO.RecyclableMemoryStream/1.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/net45/Microsoft.IO.RecyclableMemoryStream.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Microsoft.IO.RecyclableMemoryStream.dll": {}
+        }
       },
       "protobuf-net/2.0.0.668": {
         "type": "package",
@@ -338,6 +356,15 @@
         "type": "project",
         "framework": ".NETFramework,Version=v4.5"
       },
+      "Microsoft.IO.RecyclableMemoryStream/1.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/net45/Microsoft.IO.RecyclableMemoryStream.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Microsoft.IO.RecyclableMemoryStream.dll": {}
+        }
+      },
       "protobuf-net/2.0.0.668": {
         "type": "package",
         "compile": {
@@ -352,6 +379,15 @@
       "CommonSerializer/1.0.0": {
         "type": "project",
         "framework": ".NETFramework,Version=v4.5"
+      },
+      "Microsoft.IO.RecyclableMemoryStream/1.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/net45/Microsoft.IO.RecyclableMemoryStream.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Microsoft.IO.RecyclableMemoryStream.dll": {}
+        }
       },
       "protobuf-net/2.0.0.668": {
         "type": "package",
@@ -368,6 +404,15 @@
         "type": "project",
         "framework": "DNX,Version=v4.5.1"
       },
+      "Microsoft.IO.RecyclableMemoryStream/1.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/net45/Microsoft.IO.RecyclableMemoryStream.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Microsoft.IO.RecyclableMemoryStream.dll": {}
+        }
+      },
       "protobuf-net/2.0.0.668": {
         "type": "package",
         "compile": {
@@ -382,6 +427,15 @@
       "CommonSerializer/1.0.0": {
         "type": "project",
         "framework": "DNX,Version=v4.5.1"
+      },
+      "Microsoft.IO.RecyclableMemoryStream/1.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/net45/Microsoft.IO.RecyclableMemoryStream.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Microsoft.IO.RecyclableMemoryStream.dll": {}
+        }
       },
       "protobuf-net/2.0.0.668": {
         "type": "package",
@@ -1076,6 +1130,16 @@
         "ref/wpa81/_._",
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._"
+      ]
+    },
+    "Microsoft.IO.RecyclableMemoryStream/1.1.0": {
+      "type": "package",
+      "sha512": "VcPf2hZI0+jVp+Jr55lLnfhSgMIIodHVWYZ4LxKForHBOdjoleSWkcgEcdFKQ230jeQ3ZUBgVYbXKRuU0rIJTw==",
+      "files": [
+        "lib/net45/Microsoft.IO.RecyclableMemoryStream.dll",
+        "Microsoft.IO.RecyclableMemoryStream.1.1.0.nupkg",
+        "Microsoft.IO.RecyclableMemoryStream.1.1.0.nupkg.sha512",
+        "Microsoft.IO.RecyclableMemoryStream.nuspec"
       ]
     },
     "protobuf-net/2.0.0.668": {
@@ -1985,9 +2049,11 @@
       "CommonSerializer >= 1.0.0-*"
     ],
     ".NETFramework,Version=v4.5": [
+      "Microsoft.IO.RecyclableMemoryStream >= 1.1.0",
       "protobuf-net >= 2.0.0.668"
     ],
     "DNX,Version=v4.5.1": [
+      "Microsoft.IO.RecyclableMemoryStream >= 1.1.0",
       "protobuf-net >= 2.0.0.668"
     ],
     "DNXCore,Version=v5.0": [

@@ -7,7 +7,16 @@
         "type": "project",
         "framework": "DNX,Version=v4.5.1"
       },
-      "CommonSerializer.Newtonsoft/1.0.0": {
+      "CommonSerializer.MsgPack.Cli/1.0.0": {
+        "type": "project",
+        "framework": "DNX,Version=v4.5.1",
+        "dependencies": {
+          "CommonSerializer": "1.0.0",
+          "Microsoft.IO.RecyclableMemoryStream": "1.1.0",
+          "MsgPack.Cli": "0.6.5"
+        }
+      },
+      "CommonSerializer.Newtonsoft.Json/1.0.0": {
         "type": "project",
         "framework": "DNX,Version=v4.5.1",
         "dependencies": {
@@ -20,6 +29,7 @@
         "framework": "DNX,Version=v4.5.1",
         "dependencies": {
           "CommonSerializer": "1.0.0",
+          "Microsoft.IO.RecyclableMemoryStream": "1.1.0",
           "protobuf-net": "2.0.0.668"
         }
       },
@@ -142,6 +152,24 @@
         },
         "runtime": {
           "lib/dnx451/Microsoft.Framework.Logging.Abstractions.dll": {}
+        }
+      },
+      "Microsoft.IO.RecyclableMemoryStream/1.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/net45/Microsoft.IO.RecyclableMemoryStream.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Microsoft.IO.RecyclableMemoryStream.dll": {}
+        }
+      },
+      "MsgPack.Cli/0.6.5": {
+        "type": "package",
+        "compile": {
+          "lib/net45/MsgPack.dll": {}
+        },
+        "runtime": {
+          "lib/net45/MsgPack.dll": {}
         }
       },
       "Newtonsoft.Json/7.0.1": {
@@ -282,7 +310,14 @@
           "System.Runtime": "4.0.21-beta"
         }
       },
-      "CommonSerializer.Newtonsoft/1.0.0": {
+      "CommonSerializer.MsgPack.Cli/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "CommonSerializer": "1.0.0",
+          "Microsoft.IO.RecyclableMemoryStream": "1.1.0"
+        }
+      },
+      "CommonSerializer.Newtonsoft.Json/1.0.0": {
         "type": "project",
         "framework": "DNXCore,Version=v5.0",
         "dependencies": {
@@ -462,6 +497,9 @@
         "runtime": {
           "lib/dnxcore50/Microsoft.Framework.Logging.Abstractions.dll": {}
         }
+      },
+      "Microsoft.IO.RecyclableMemoryStream/1.1.0": {
+        "type": "package"
       },
       "Microsoft.Win32.Primitives/4.0.0": {
         "type": "package",
@@ -1324,7 +1362,16 @@
         "type": "project",
         "framework": "DNX,Version=v4.5.1"
       },
-      "CommonSerializer.Newtonsoft/1.0.0": {
+      "CommonSerializer.MsgPack.Cli/1.0.0": {
+        "type": "project",
+        "framework": "DNX,Version=v4.5.1",
+        "dependencies": {
+          "CommonSerializer": "1.0.0",
+          "Microsoft.IO.RecyclableMemoryStream": "1.1.0",
+          "MsgPack.Cli": "0.6.5"
+        }
+      },
+      "CommonSerializer.Newtonsoft.Json/1.0.0": {
         "type": "project",
         "framework": "DNX,Version=v4.5.1",
         "dependencies": {
@@ -1337,6 +1384,7 @@
         "framework": "DNX,Version=v4.5.1",
         "dependencies": {
           "CommonSerializer": "1.0.0",
+          "Microsoft.IO.RecyclableMemoryStream": "1.1.0",
           "protobuf-net": "2.0.0.668"
         }
       },
@@ -1459,6 +1507,24 @@
         },
         "runtime": {
           "lib/dnx451/Microsoft.Framework.Logging.Abstractions.dll": {}
+        }
+      },
+      "Microsoft.IO.RecyclableMemoryStream/1.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/net45/Microsoft.IO.RecyclableMemoryStream.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Microsoft.IO.RecyclableMemoryStream.dll": {}
+        }
+      },
+      "MsgPack.Cli/0.6.5": {
+        "type": "package",
+        "compile": {
+          "lib/net45/MsgPack.dll": {}
+        },
+        "runtime": {
+          "lib/net45/MsgPack.dll": {}
         }
       },
       "Newtonsoft.Json/7.0.1": {
@@ -1595,7 +1661,16 @@
         "type": "project",
         "framework": "DNX,Version=v4.5.1"
       },
-      "CommonSerializer.Newtonsoft/1.0.0": {
+      "CommonSerializer.MsgPack.Cli/1.0.0": {
+        "type": "project",
+        "framework": "DNX,Version=v4.5.1",
+        "dependencies": {
+          "CommonSerializer": "1.0.0",
+          "Microsoft.IO.RecyclableMemoryStream": "1.1.0",
+          "MsgPack.Cli": "0.6.5"
+        }
+      },
+      "CommonSerializer.Newtonsoft.Json/1.0.0": {
         "type": "project",
         "framework": "DNX,Version=v4.5.1",
         "dependencies": {
@@ -1608,6 +1683,7 @@
         "framework": "DNX,Version=v4.5.1",
         "dependencies": {
           "CommonSerializer": "1.0.0",
+          "Microsoft.IO.RecyclableMemoryStream": "1.1.0",
           "protobuf-net": "2.0.0.668"
         }
       },
@@ -1730,6 +1806,24 @@
         },
         "runtime": {
           "lib/dnx451/Microsoft.Framework.Logging.Abstractions.dll": {}
+        }
+      },
+      "Microsoft.IO.RecyclableMemoryStream/1.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/net45/Microsoft.IO.RecyclableMemoryStream.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Microsoft.IO.RecyclableMemoryStream.dll": {}
+        }
+      },
+      "MsgPack.Cli/0.6.5": {
+        "type": "package",
+        "compile": {
+          "lib/net45/MsgPack.dll": {}
+        },
+        "runtime": {
+          "lib/net45/MsgPack.dll": {}
         }
       },
       "Newtonsoft.Json/7.0.1": {
@@ -1870,7 +1964,14 @@
           "System.Runtime": "4.0.21-beta"
         }
       },
-      "CommonSerializer.Newtonsoft/1.0.0": {
+      "CommonSerializer.MsgPack.Cli/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "CommonSerializer": "1.0.0",
+          "Microsoft.IO.RecyclableMemoryStream": "1.1.0"
+        }
+      },
+      "CommonSerializer.Newtonsoft.Json/1.0.0": {
         "type": "project",
         "framework": "DNXCore,Version=v5.0",
         "dependencies": {
@@ -2050,6 +2151,9 @@
         "runtime": {
           "lib/dnxcore50/Microsoft.Framework.Logging.Abstractions.dll": {}
         }
+      },
+      "Microsoft.IO.RecyclableMemoryStream/1.1.0": {
+        "type": "package"
       },
       "Microsoft.Win32.Primitives/4.0.0": {
         "type": "package",
@@ -3187,7 +3291,14 @@
           "System.Runtime": "4.0.21-beta"
         }
       },
-      "CommonSerializer.Newtonsoft/1.0.0": {
+      "CommonSerializer.MsgPack.Cli/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "CommonSerializer": "1.0.0",
+          "Microsoft.IO.RecyclableMemoryStream": "1.1.0"
+        }
+      },
+      "CommonSerializer.Newtonsoft.Json/1.0.0": {
         "type": "project",
         "framework": "DNXCore,Version=v5.0",
         "dependencies": {
@@ -3367,6 +3478,9 @@
         "runtime": {
           "lib/dnxcore50/Microsoft.Framework.Logging.Abstractions.dll": {}
         }
+      },
+      "Microsoft.IO.RecyclableMemoryStream/1.1.0": {
+        "type": "package"
       },
       "Microsoft.Win32.Primitives/4.0.0": {
         "type": "package",
@@ -4501,9 +4615,13 @@
       "type": "project",
       "path": "../CommonSerializer/project.json"
     },
-    "CommonSerializer.Newtonsoft/1.0.0": {
+    "CommonSerializer.MsgPack.Cli/1.0.0": {
       "type": "project",
-      "path": "../CommonSerializer.Newtonsoft/project.json"
+      "path": "../CommonSerializer.MsgPack.Cli/project.json"
+    },
+    "CommonSerializer.Newtonsoft.Json/1.0.0": {
+      "type": "project",
+      "path": "../CommonSerializer.Newtonsoft.Json/project.json"
     },
     "CommonSerializer.Protobuf-net/1.0.0": {
       "type": "project",
@@ -4661,6 +4779,16 @@
         "Microsoft.Framework.Logging.Abstractions.nuspec"
       ]
     },
+    "Microsoft.IO.RecyclableMemoryStream/1.1.0": {
+      "type": "package",
+      "sha512": "VcPf2hZI0+jVp+Jr55lLnfhSgMIIodHVWYZ4LxKForHBOdjoleSWkcgEcdFKQ230jeQ3ZUBgVYbXKRuU0rIJTw==",
+      "files": [
+        "lib/net45/Microsoft.IO.RecyclableMemoryStream.dll",
+        "Microsoft.IO.RecyclableMemoryStream.1.1.0.nupkg",
+        "Microsoft.IO.RecyclableMemoryStream.1.1.0.nupkg.sha512",
+        "Microsoft.IO.RecyclableMemoryStream.nuspec"
+      ]
+    },
     "Microsoft.Win32.Primitives/4.0.0": {
       "type": "package",
       "serviceable": true,
@@ -4715,6 +4843,33 @@
         "Microsoft.Win32.Registry.nuspec",
         "ref/dotnet/Microsoft.Win32.Registry.dll",
         "ref/net46/Microsoft.Win32.Registry.dll"
+      ]
+    },
+    "MsgPack.Cli/0.6.5": {
+      "type": "package",
+      "sha512": "cNgFHAnJCG7yoRGQ45NbuRbKmtnqqo15Rz9Ydgfv17LrJGJIZ1AcwZzRcMrgI5N/crj+PjnoLzEu9RrXMkqiJw==",
+      "files": [
+        "lib/MonoAndroid10/MsgPack.dll",
+        "lib/MonoAndroid10/MsgPack.xml",
+        "lib/MonoTouch10/MsgPack.dll",
+        "lib/MonoTouch10/MsgPack.xml",
+        "lib/net35-client/MsgPack.dll",
+        "lib/net35-client/MsgPack.XML",
+        "lib/net40-client/MsgPack.dll",
+        "lib/net40-client/MsgPack.xml",
+        "lib/net45/MsgPack.dll",
+        "lib/net45/MsgPack.XML",
+        "lib/portable-net45+win+wpa81/MsgPack.dll",
+        "lib/portable-net45+win+wpa81/MsgPack.XML",
+        "lib/sl5/MsgPack.dll",
+        "lib/sl5/MsgPack.XML",
+        "lib/windowsphone8/MsgPack.dll",
+        "lib/windowsphone8/MsgPack.XML",
+        "lib/Xamarin.iOS10/MsgPack.dll",
+        "lib/Xamarin.iOS10/MsgPack.xml",
+        "MsgPack.Cli.0.6.5.nupkg",
+        "MsgPack.Cli.0.6.5.nupkg.sha512",
+        "MsgPack.Cli.nuspec"
       ]
     },
     "Newtonsoft.Json/7.0.1": {
@@ -6931,7 +7086,8 @@
   "projectFileDependencyGroups": {
     "": [
       "CommonSerializer >= 1.0.0-*",
-      "CommonSerializer.Newtonsoft >= 1.0.0-*",
+      "CommonSerializer.MsgPack.Cli >= 1.0.0-*",
+      "CommonSerializer.Newtonsoft.Json >= 1.0.0-*",
       "CommonSerializer.Protobuf-net >= 1.0.0-*",
       "xunit >= 2.1.0",
       "xunit.runner.dnx >= 2.1.0-beta6-build191"

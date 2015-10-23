@@ -3,8 +3,7 @@ using System.IO;
 
 namespace CommonSerializer.ProtobufNet
 {
-	[ProtoBuf.ProtoContract(UseProtoMembersOnly = true)]
-	internal class ProtobufSerializedContainer : ISerializedContainer
+	internal class MsgPackSerializedContainer : ISerializedContainer
 	{
 #if DNX451 || NET45
 		private static readonly Microsoft.IO.RecyclableMemoryStreamManager _streamManager = new Microsoft.IO.RecyclableMemoryStreamManager();

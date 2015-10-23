@@ -7,14 +7,16 @@
 	"licenseUrl": "",
 	"frameworks": {
 		"net45": {
-			"dependencies": {
-				"protobuf-net": "2.0.0.668"
-			}
+            "dependencies": {
+                "Microsoft.IO.RecyclableMemoryStream": "1.1.0",
+                "protobuf-net": "2.0.0.668"
+            }
 		},
 		"dnx451": {
-			"dependencies": {
-				"protobuf-net": "2.0.0.668"
-			}
+            "dependencies": {
+                "Microsoft.IO.RecyclableMemoryStream": "1.1.0",
+                "protobuf-net": "2.0.0.668"
+            }
 		},
 		"dnxcore50": {
 			"dependencies": {
