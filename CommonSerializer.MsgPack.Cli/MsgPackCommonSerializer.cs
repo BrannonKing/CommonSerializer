@@ -5,18 +5,18 @@ using System.Text;
 using MsgPack;
 using MsgPack.Serialization;
 
-namespace CommonSerializer.ProtobufNet
+namespace CommonSerializer.MsgPack.Cli
 {
-	public class ProtobufCommonSerializer: ICommonSerializer
+	public class MsgPackCommonSerializer: ICommonSerializer
 	{
 		private readonly SerializationContext _context;
-		public ProtobufCommonSerializer(SerializationContext context)
+		public MsgPackCommonSerializer(SerializationContext context)
 		{
 			_context = context;
-            RegisterSubtype<ISerializedContainer, MsgPackSerializedContainer>(1); // left off: convert this to a custom serializer
+			context.Serializers.Register(new MessagePackSerializedContainerSerializer());
 		}
 
-		public ProtobufCommonSerializer() : this(SerializationContext.Default)
+		public MsgPackCommonSerializer() : this(SerializationContext.Default)
 		{
 		}
 
@@ -85,7 +85,11 @@ namespace CommonSerializer.ProtobufNet
 			if (psc == null)
 				throw new ArgumentException("Invalid container type. Use the GenerateContainer method.");
 
-			return Deserialize(psc.Stream, type);
+			byte[] bytes;
+			if (!psc.Queue.TryDequeue(out bytes))
+				throw new InvalidDataException("No data available in the container.");
+
+			return _context.GetSerializer(type).UnpackSingleObject(bytes);
 		}
 
 		public T Deserialize<T>(Stream stream)
@@ -164,8 +168,8 @@ namespace CommonSerializer.ProtobufNet
 			if (psc == null)
 				throw new ArgumentException("Invalid container type. Use the GenerateContainer method.");
 
-			Serialize(psc.Stream, value, type);
-			psc.Count++;
+			var bytes = _context.GetSerializer(type).PackSingleObject(value); // TODO: use recyclable memory pool
+			psc.Queue.Enqueue(bytes);
 		}
     }
 }

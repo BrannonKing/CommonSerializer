@@ -8,17 +8,18 @@
 	"frameworks": {
         "net45": {
             "dependencies": {
-                "MsgPack.Cli": "0.6.5"
+                "MsgPack.Cli": "0.6.5",
+		        "Microsoft.IO.RecyclableMemoryStream": "1.1.0"
             }
         },
         "dnx451": {
             "dependencies": {
-                "MsgPack.Cli": "0.6.5"
+                "MsgPack.Cli": "0.6.5",
+		        "Microsoft.IO.RecyclableMemoryStream": "1.1.0"
             }
         }
 	},
     "dependencies": {
-        "CommonSerializer": "1.0.0-*",
-        "Microsoft.IO.RecyclableMemoryStream": "1.1.0"
+        "CommonSerializer": "1.0.0-*"
     }
 }

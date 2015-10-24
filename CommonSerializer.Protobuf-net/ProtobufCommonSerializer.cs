@@ -7,7 +7,7 @@ using ProtoBuf.Meta;
 
 namespace CommonSerializer.ProtobufNet
 {
-	public class ProtobufCommonSerializer: ICommonSerializer
+	public class ProtobufCommonSerializer : ICommonSerializer
 	{
 		private readonly RuntimeTypeModel _runtime;
 
@@ -88,7 +88,16 @@ namespace CommonSerializer.ProtobufNet
 			if (psc == null)
 				throw new ArgumentException("Invalid container type. Use the GenerateContainer method.");
 
-			return Deserialize(psc.Stream, type);
+			byte[] bytes;
+			if (!psc.Queue.TryDequeue(out bytes))
+				throw new InvalidDataException("No data available in the container.");
+
+#if DNX451 || NET45
+			using (var ms = _streamManager.GetStream("ProtobufDeserialize", bytes, 0, bytes.Length))
+#else
+			using (var ms = new MemoryStream(bytes, false))
+#endif
+				return Deserialize(ms, type);
 		}
 
 		public T Deserialize<T>(Stream stream)
@@ -169,14 +178,21 @@ namespace CommonSerializer.ProtobufNet
 			Serialize(container, value, typeof(T));
 		}
 
-        public void Serialize(ISerializedContainer container, object value, Type type)
+		public void Serialize(ISerializedContainer container, object value, Type type)
 		{
 			var psc = container as ProtobufSerializedContainer;
 			if (psc == null)
 				throw new ArgumentException("Invalid container type. Use the GenerateContainer method.");
 
-			Serialize(psc.Stream, value, type);
-			psc.Count++;
+#if DNX451 || NET45
+			using (var stream = _streamManager.GetStream("ProtobufSerialize"))
+#else
+			using (var stream = new MemoryStream())
+#endif
+			{
+				Serialize(stream, value, type);
+				psc.Queue.Enqueue(stream.ToArray());
+			}
 		}
-    }
+	}
 }

@@ -6,6 +6,7 @@ using CommonSerializer;
 using CommonSerializer.Newtonsoft.Json;
 using CommonSerializer.ProtobufNet;
 using Xunit;
+using CommonSerializer.MsgPack.Cli;
 
 namespace Kts.Remoting.Tests
 {
@@ -17,6 +18,7 @@ namespace Kts.Remoting.Tests
 			{
 				yield return new JsonCommonSerializer();
 				yield return new ProtobufCommonSerializer();
+				yield return new MsgPackCommonSerializer();
 			}
 		}
 
@@ -95,7 +97,7 @@ namespace Kts.Remoting.Tests
 		}
 
 		[DataContract]
-		private class TestData
+		public class TestData
 		{
 			[DataMember(Order = 1)]
 			public bool TestBool { get; set; }
@@ -146,7 +148,7 @@ namespace Kts.Remoting.Tests
 		}
 
 		[DataContract]
-		private class SubTestData
+		public class SubTestData
 		{
 			[DataMember(Order = 1)]
 			public string Name { get; set; }
@@ -163,12 +165,12 @@ namespace Kts.Remoting.Tests
 		}
 
 		[DataContract]
-		private class ContainerWrapper
+		public class ContainerWrapper
 		{
-			[DataMember(Order = 1)]
+			[DataMember(Order = 1, IsRequired = false)]
 			public ISerializedContainer Container { get; set; }
 
-			[DataMember(Order = 2)]
+			[DataMember(Order = 2, IsRequired = false)]
 			public ISerializedContainer AlwaysNull { get; set; }
 		}
 

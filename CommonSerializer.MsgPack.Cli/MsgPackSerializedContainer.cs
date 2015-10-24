@@ -1,42 +1,21 @@
-﻿using System;
-using System.IO;
+﻿using MsgPack.Serialization;
+using MsgPack;
+using System.Collections.Concurrent;
+using System.Collections.Generic;
 
-namespace CommonSerializer.ProtobufNet
+namespace CommonSerializer.MsgPack.Cli
 {
-	internal class MsgPackSerializedContainer : ISerializedContainer
+	public class MsgPackSerializedContainer : ISerializedContainer
 	{
-#if DNX451 || NET45
-		private static readonly Microsoft.IO.RecyclableMemoryStreamManager _streamManager = new Microsoft.IO.RecyclableMemoryStreamManager();
-		private MemoryStream _stream = _streamManager.GetStream("WritableProtobufContainer"); // relying on finalizer for the moment
-#else
-		private MemoryStream _stream = new MemoryStream();
-#endif
+		internal readonly ConcurrentQueue<byte[]> Queue = new ConcurrentQueue<byte[]>();
 
-		public Stream Stream {  get { return _stream; } }
-
-		[ProtoBuf.ProtoMember(1)]
-		public byte[] Data
-		{
-			get { return _stream.ToArray(); } // need to flush first?
-			set
-			{
-				_stream.Dispose();
-#if DNX451 || NET45
-				_stream = _streamManager.GetStream("ReadableProtobufContainer", value, 0, value.Length);
-#else
-				_stream = new MemoryStream(value, false);
-#endif
-			}
-		}
-
-		[ProtoBuf.ProtoMember(2)]
-		public int Count { get; internal set; }
+		public int Count { get { return Queue.Count; } }
 
 		public bool CanRead
 		{
 			get
 			{
-				return _stream.Position < _stream.Length;
+				return !Queue.IsEmpty;
 			}
 		}
 
@@ -44,8 +23,52 @@ namespace CommonSerializer.ProtobufNet
 		{
 			get
 			{
-				return _stream.Position >= _stream.Length;
+				return true;
 			}
+		}
+	}
+
+	internal class MessagePackSerializedContainerSerializer : MessagePackSerializer<ISerializedContainer>
+	{
+		public MessagePackSerializedContainerSerializer()
+			: this(SerializationContext.Default)
+		{ }
+
+		public MessagePackSerializedContainerSerializer(SerializationContext context)
+			: base(context)
+		{
+			// If the target objects has complex (non-primitive) objects,
+			// you can get serializers which can handle complex type fields.
+			// And then, you can cache them to instance fields of this custom serializer.
+		}
+
+		protected override void PackToCore(Packer packer, ISerializedContainer objectTree)
+		{
+			var list = new List<byte[]>();
+			byte[] bytes;
+			while (((MsgPackSerializedContainer)objectTree).Queue.TryDequeue(out bytes))
+				list.Add(bytes);
+
+			packer.PackArrayHeader(list);
+			packer.PackArray(list);
+		}
+
+		protected override ISerializedContainer UnpackFromCore(Unpacker unpacker)
+		{
+			var ret = new MsgPackSerializedContainer();
+			long arrayLen;
+			if (!unpacker.ReadArrayLength(out arrayLen))
+				return ret;
+
+			for (int i = 0; i < arrayLen; i++)
+			{
+				byte[] arr;
+				if (!unpacker.ReadBinary(out arr))
+					continue;
+				ret.Queue.Enqueue(arr);
+			}
+
+			return ret;
 		}
 	}
 }

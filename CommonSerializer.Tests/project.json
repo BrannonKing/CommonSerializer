@@ -24,16 +24,6 @@
 			"frameworkAssemblies": {
 				"System.Runtime.Serialization": "4.0.0.0"
 			}
-		},
-		"dnxcore50": {
-			"dependencies": {
-				"Microsoft.CSharp": "4.0.1-beta-*",
-				"System.Collections": "4.0.11-beta-*",
-				"System.Linq": "4.0.1-beta-*",
-				"System.Runtime": "4.0.21-beta-*",
-				"System.Threading": "4.0.11-beta-*",
-				"System.Runtime.Serialization.Primitives": "4.0.11-beta-*"
-			}
 		}
 	}
 }
