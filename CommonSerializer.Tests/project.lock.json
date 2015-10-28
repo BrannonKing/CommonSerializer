@@ -7,6 +7,15 @@
         "type": "project",
         "framework": "DNX,Version=v4.5.1"
       },
+      "CommonSerializer.Jil/1.0.0": {
+        "type": "project",
+        "framework": "DNX,Version=v4.5.1",
+        "dependencies": {
+          "CommonSerializer": "1.0.0",
+          "Jil": "2.12.1",
+          "Microsoft.IO.RecyclableMemoryStream": "1.1.0"
+        }
+      },
       "CommonSerializer.MsgPack.Cli/1.0.0": {
         "type": "project",
         "framework": "DNX,Version=v4.5.1",
@@ -31,6 +40,21 @@
           "CommonSerializer": "1.0.0",
           "Microsoft.IO.RecyclableMemoryStream": "1.1.0",
           "protobuf-net": "2.0.0.668"
+        }
+      },
+      "Jil/2.12.1": {
+        "type": "package",
+        "dependencies": {
+          "Sigil": "4.5.0"
+        },
+        "frameworkAssemblies": [
+          "System.Runtime.Serialization"
+        ],
+        "compile": {
+          "lib/net45/Jil.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Jil.dll": {}
         }
       },
       "Microsoft.Dnx.Compilation.Abstractions/1.0.0-beta8": {
@@ -188,6 +212,15 @@
         },
         "runtime": {
           "lib/net40/protobuf-net.dll": {}
+        }
+      },
+      "Sigil/4.5.0": {
+        "type": "package",
+        "compile": {
+          "lib/net45/Sigil.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Sigil.dll": {}
         }
       },
       "xunit/2.1.0": {
@@ -306,6 +339,15 @@
         "type": "project",
         "framework": "DNX,Version=v4.5.1"
       },
+      "CommonSerializer.Jil/1.0.0": {
+        "type": "project",
+        "framework": "DNX,Version=v4.5.1",
+        "dependencies": {
+          "CommonSerializer": "1.0.0",
+          "Jil": "2.12.1",
+          "Microsoft.IO.RecyclableMemoryStream": "1.1.0"
+        }
+      },
       "CommonSerializer.MsgPack.Cli/1.0.0": {
         "type": "project",
         "framework": "DNX,Version=v4.5.1",
@@ -330,6 +372,21 @@
           "CommonSerializer": "1.0.0",
           "Microsoft.IO.RecyclableMemoryStream": "1.1.0",
           "protobuf-net": "2.0.0.668"
+        }
+      },
+      "Jil/2.12.1": {
+        "type": "package",
+        "dependencies": {
+          "Sigil": "4.5.0"
+        },
+        "frameworkAssemblies": [
+          "System.Runtime.Serialization"
+        ],
+        "compile": {
+          "lib/net45/Jil.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Jil.dll": {}
         }
       },
       "Microsoft.Dnx.Compilation.Abstractions/1.0.0-beta8": {
@@ -487,6 +544,15 @@
         },
         "runtime": {
           "lib/net40/protobuf-net.dll": {}
+        }
+      },
+      "Sigil/4.5.0": {
+        "type": "package",
+        "compile": {
+          "lib/net45/Sigil.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Sigil.dll": {}
         }
       },
       "xunit/2.1.0": {
@@ -605,6 +671,15 @@
         "type": "project",
         "framework": "DNX,Version=v4.5.1"
       },
+      "CommonSerializer.Jil/1.0.0": {
+        "type": "project",
+        "framework": "DNX,Version=v4.5.1",
+        "dependencies": {
+          "CommonSerializer": "1.0.0",
+          "Jil": "2.12.1",
+          "Microsoft.IO.RecyclableMemoryStream": "1.1.0"
+        }
+      },
       "CommonSerializer.MsgPack.Cli/1.0.0": {
         "type": "project",
         "framework": "DNX,Version=v4.5.1",
@@ -629,6 +704,21 @@
           "CommonSerializer": "1.0.0",
           "Microsoft.IO.RecyclableMemoryStream": "1.1.0",
           "protobuf-net": "2.0.0.668"
+        }
+      },
+      "Jil/2.12.1": {
+        "type": "package",
+        "dependencies": {
+          "Sigil": "4.5.0"
+        },
+        "frameworkAssemblies": [
+          "System.Runtime.Serialization"
+        ],
+        "compile": {
+          "lib/net45/Jil.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Jil.dll": {}
         }
       },
       "Microsoft.Dnx.Compilation.Abstractions/1.0.0-beta8": {
@@ -786,6 +876,15 @@
         },
         "runtime": {
           "lib/net40/protobuf-net.dll": {}
+        }
+      },
+      "Sigil/4.5.0": {
+        "type": "package",
+        "compile": {
+          "lib/net45/Sigil.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Sigil.dll": {}
         }
       },
       "xunit/2.1.0": {
@@ -905,6 +1004,10 @@
       "type": "project",
       "path": "../CommonSerializer/project.json"
     },
+    "CommonSerializer.Jil/1.0.0": {
+      "type": "project",
+      "path": "../CommonSerializer.Jil/project.json"
+    },
     "CommonSerializer.MsgPack.Cli/1.0.0": {
       "type": "project",
       "path": "../CommonSerializer.MsgPack.Cli/project.json"
@@ -916,6 +1019,18 @@
     "CommonSerializer.Protobuf-net/1.0.0": {
       "type": "project",
       "path": "../CommonSerializer.Protobuf-net/project.json"
+    },
+    "Jil/2.12.1": {
+      "type": "package",
+      "sha512": "IYe0QpAds0vlu90oHaWHebUX/eKARHqPBFZ+uyb4tGV4CGHAtZ+NkIlElPS5szN6Sou6x4I/5khDate5TO9K4w==",
+      "files": [
+        "Jil.2.12.1.nupkg",
+        "Jil.2.12.1.nupkg.sha512",
+        "Jil.nuspec",
+        "lib/net45/Jil.dll",
+        "lib/net45/Jil.pdb",
+        "lib/net45/Jil.XML"
+      ]
     },
     "Microsoft.Dnx.Compilation.Abstractions/1.0.0-beta8": {
       "type": "package",
@@ -1136,6 +1251,30 @@
         "protobuf-net.nuspec"
       ]
     },
+    "Sigil/4.5.0": {
+      "type": "package",
+      "sha512": "vhH+FF47TPtQRcGdj/vKpv0nHHcdXh85KES/Pyv9W81J0qQHrky30/17qULePv7JENu6kOAYBpTFP4NOzTDXfw==",
+      "files": [
+        "lib/net20/Sigil.dll",
+        "lib/net20/Sigil.pdb",
+        "lib/net20/Sigil.xml",
+        "lib/net30/Sigil.dll",
+        "lib/net30/Sigil.pdb",
+        "lib/net30/Sigil.xml",
+        "lib/net35/Sigil.dll",
+        "lib/net35/Sigil.pdb",
+        "lib/net35/Sigil.xml",
+        "lib/net40/Sigil.dll",
+        "lib/net40/Sigil.pdb",
+        "lib/net40/Sigil.xml",
+        "lib/net45/Sigil.dll",
+        "lib/net45/Sigil.pdb",
+        "lib/net45/Sigil.XML",
+        "Sigil.4.5.0.nupkg",
+        "Sigil.4.5.0.nupkg.sha512",
+        "Sigil.nuspec"
+      ]
+    },
     "xunit/2.1.0": {
       "type": "package",
       "sha512": "u/7VQSOSXa7kSG4iK6Lcn7RqKZQ3hk7cnyMNVMpXHSP0RI5VQEtc44hvkG3LyWOVsx1dhUDD3rPAHAxyOUDQJw==",
@@ -1303,8 +1442,10 @@
   "projectFileDependencyGroups": {
     "": [
       "CommonSerializer >= 1.0.0-*",
+      "CommonSerializer.Jil >= 1.0.0-*",
       "CommonSerializer.Newtonsoft.Json >= 1.0.0-*",
       "CommonSerializer.Protobuf-net >= 1.0.0-*",
+      "Jil >= 2.12.1",
       "xunit >= 2.1.0",
       "xunit.runner.dnx >= 2.1.0-beta6-build191"
     ],

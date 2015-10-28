@@ -1,4 +1,4 @@
-﻿{
+{
 	"version": "1.0.0-*",
 	"description": "CommonSerializer.Tests Class Library",
 	"authors": [ "Brannon King" ],
@@ -6,13 +6,15 @@
 	"projectUrl": "",
 	"licenseUrl": "",
 
-	"dependencies": {
-		"CommonSerializer": "1.0.0-*",
-		"CommonSerializer.Newtonsoft.Json": "1.0.0-*",
-		"CommonSerializer.Protobuf-net": "1.0.0-*",
-		"xunit": "2.1.0",
-		"xunit.runner.dnx": "2.1.0-beta6-build191"
-	},
+    "dependencies": {
+        "CommonSerializer": "1.0.0-*",
+        "CommonSerializer.Jil": "1.0.0-*",
+        "CommonSerializer.Newtonsoft.Json": "1.0.0-*",
+        "CommonSerializer.Protobuf-net": "1.0.0-*",
+        "Jil": "2.12.1",
+        "xunit": "2.1.0",
+        "xunit.runner.dnx": "2.1.0-beta6-build191"
+    },
 	"commands": {
 		"test": "xunit.runner.dnx"
 	},

@@ -19,6 +19,8 @@ Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "CommonSerializer.Protobuf-n
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "CommonSerializer.MsgPack.Cli", "CommonSerializer.MsgPack.Cli\CommonSerializer.MsgPack.Cli.xproj", "{C02496C7-7045-46FB-BA90-C2A590F3925E}"
 EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "CommonSerializer.Jil", "CommonSerializer.Jil\CommonSerializer.Jil.xproj", "{E79FDCC3-B588-481D-A8D3-AE19DEC9BDA5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{C02496C7-7045-46FB-BA90-C2A590F3925E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C02496C7-7045-46FB-BA90-C2A590F3925E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C02496C7-7045-46FB-BA90-C2A590F3925E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E79FDCC3-B588-481D-A8D3-AE19DEC9BDA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E79FDCC3-B588-481D-A8D3-AE19DEC9BDA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E79FDCC3-B588-481D-A8D3-AE19DEC9BDA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E79FDCC3-B588-481D-A8D3-AE19DEC9BDA5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

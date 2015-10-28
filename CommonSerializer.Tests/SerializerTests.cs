@@ -5,8 +5,9 @@ using System.Runtime.Serialization;
 using CommonSerializer;
 using CommonSerializer.Newtonsoft.Json;
 using CommonSerializer.ProtobufNet;
-using Xunit;
 using CommonSerializer.MsgPack.Cli;
+using CommonSerializer.Jil;
+using Xunit;
 
 namespace Kts.Remoting.Tests
 {
@@ -18,6 +19,7 @@ namespace Kts.Remoting.Tests
 			{
 				yield return new JsonCommonSerializer();
 				yield return new ProtobufCommonSerializer();
+				yield return new JilCommonSerializer();
 				yield return new MsgPackCommonSerializer();
 			}
 		}
@@ -144,6 +146,7 @@ namespace Kts.Remoting.Tests
 			[DataMember(Order = 15)]
 			public List<SubTestData> Children { get; set; }
 
+			[IgnoreDataMember]
 			public int DontGo { get; set; }
 		}
 
