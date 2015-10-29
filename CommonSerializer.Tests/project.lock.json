@@ -33,6 +33,14 @@
           "Newtonsoft.Json": "7.0.1"
         }
       },
+      "CommonSerializer.PowerJSON/1.0.0": {
+        "type": "project",
+        "framework": "DNX,Version=v4.5.1",
+        "dependencies": {
+          "CommonSerializer": "1.0.0",
+          "PowerJSON": "2.4.0.3"
+        }
+      },
       "CommonSerializer.Protobuf-net/1.0.0": {
         "type": "project",
         "framework": "DNX,Version=v4.5.1",
@@ -203,6 +211,15 @@
         },
         "runtime": {
           "lib/net45/Newtonsoft.Json.dll": {}
+        }
+      },
+      "PowerJSON/2.4.0.3": {
+        "type": "package",
+        "compile": {
+          "lib/net40/fastJSON.dll": {}
+        },
+        "runtime": {
+          "lib/net40/fastJSON.dll": {}
         }
       },
       "protobuf-net/2.0.0.668": {
@@ -365,6 +382,14 @@
           "Newtonsoft.Json": "7.0.1"
         }
       },
+      "CommonSerializer.PowerJSON/1.0.0": {
+        "type": "project",
+        "framework": "DNX,Version=v4.5.1",
+        "dependencies": {
+          "CommonSerializer": "1.0.0",
+          "PowerJSON": "2.4.0.3"
+        }
+      },
       "CommonSerializer.Protobuf-net/1.0.0": {
         "type": "project",
         "framework": "DNX,Version=v4.5.1",
@@ -535,6 +560,15 @@
         },
         "runtime": {
           "lib/net45/Newtonsoft.Json.dll": {}
+        }
+      },
+      "PowerJSON/2.4.0.3": {
+        "type": "package",
+        "compile": {
+          "lib/net40/fastJSON.dll": {}
+        },
+        "runtime": {
+          "lib/net40/fastJSON.dll": {}
         }
       },
       "protobuf-net/2.0.0.668": {
@@ -697,6 +731,14 @@
           "Newtonsoft.Json": "7.0.1"
         }
       },
+      "CommonSerializer.PowerJSON/1.0.0": {
+        "type": "project",
+        "framework": "DNX,Version=v4.5.1",
+        "dependencies": {
+          "CommonSerializer": "1.0.0",
+          "PowerJSON": "2.4.0.3"
+        }
+      },
       "CommonSerializer.Protobuf-net/1.0.0": {
         "type": "project",
         "framework": "DNX,Version=v4.5.1",
@@ -869,6 +911,15 @@
           "lib/net45/Newtonsoft.Json.dll": {}
         }
       },
+      "PowerJSON/2.4.0.3": {
+        "type": "package",
+        "compile": {
+          "lib/net40/fastJSON.dll": {}
+        },
+        "runtime": {
+          "lib/net40/fastJSON.dll": {}
+        }
+      },
       "protobuf-net/2.0.0.668": {
         "type": "package",
         "compile": {
@@ -1015,6 +1066,10 @@
     "CommonSerializer.Newtonsoft.Json/1.0.0": {
       "type": "project",
       "path": "../CommonSerializer.Newtonsoft.Json/project.json"
+    },
+    "CommonSerializer.PowerJSON/1.0.0": {
+      "type": "project",
+      "path": "../CommonSerializer.PowerJSON/project.json"
     },
     "CommonSerializer.Protobuf-net/1.0.0": {
       "type": "project",
@@ -1200,6 +1255,22 @@
         "Newtonsoft.Json.7.0.1.nupkg.sha512",
         "Newtonsoft.Json.nuspec",
         "tools/install.ps1"
+      ]
+    },
+    "PowerJSON/2.4.0.3": {
+      "type": "package",
+      "sha512": "ym/tVPQ7xvxmzYDX+FqvZTi1mnx1IJW/WbPJb07gxAtRxKymrfL/8pGlbUKWs60kdlRKdE8YcCE5vMVHkzRC+w==",
+      "files": [
+        "lib/net20/fastJSON.dll",
+        "lib/net20/fastJSON.XML",
+        "lib/net40/fastJSON.dll",
+        "lib/net40/fastJSON.XML",
+        "lib/net40-client/fastJSON.dll",
+        "lib/net40-client/fastJSON.XML",
+        "PowerJSON.2.4.0.3.nupkg",
+        "PowerJSON.2.4.0.3.nupkg.sha512",
+        "PowerJSON.chm",
+        "PowerJSON.nuspec"
       ]
     },
     "protobuf-net/2.0.0.668": {
@@ -1444,6 +1515,7 @@
       "CommonSerializer >= 1.0.0-*",
       "CommonSerializer.Jil >= 1.0.0-*",
       "CommonSerializer.Newtonsoft.Json >= 1.0.0-*",
+      "CommonSerializer.PowerJSON >= 1.0.0-*",
       "CommonSerializer.Protobuf-net >= 1.0.0-*",
       "Jil >= 2.12.1",
       "xunit >= 2.1.0",

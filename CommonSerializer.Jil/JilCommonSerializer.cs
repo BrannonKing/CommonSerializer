@@ -58,13 +58,6 @@ namespace CommonSerializer.Jil
 				Serialize(ms, t);
 				ms.Position = 0;
 				return (T)Deserialize(ms, t.GetType());
-
-				// alternate that will use less memory and might be faster (not tested yet):
-				//using (var writer = new BsonWriter(ms))
-				//	_serializer.Serialize(writer, t);
-				//ms.Position = 0;
-				//using (var reader = new BsonReader(ms))
-				//	return _serializer.Deserialize<T>(reader);
 			}
 		}
 
@@ -87,35 +80,29 @@ namespace CommonSerializer.Jil
 
 		public object Deserialize(ISerializedContainer container, Type type)
 		{
-			var jTokenContainer = container as JilSerializedContainer;
-			if (jTokenContainer == null)
-				throw new ArgumentException("Invalid container. Use the GenerateContainer method.");
+			var jTokenContainer = (JilSerializedContainer)container;
 
-			byte[] bytes;
-			if (!jTokenContainer.Queue.TryDequeue(out bytes))
+			string data;
+			if (!jTokenContainer.Queue.TryDequeue(out data))
 				throw new InvalidDataException("No data available in the container.");
 
-#if DNX451 || NET45
-			using (var ms = _streamManager.GetStream("DeserializeContainer", bytes, 0, bytes.Length))
-#else
-			using (var ms = new MemoryStream(bytes, false))
-#endif
-				return Deserialize(ms, type);
+			return Deserialize(data, type);
 		}
 
 		public T Deserialize<T>(TextReader reader)
 		{
-			return (T)Deserialize(reader, typeof(T));
+			return (T)JSON.DeserializeDynamic(reader, _options);
 		}
 
 		public T Deserialize<T>(string str)
 		{
-			return (T)Deserialize(str, typeof(T));
+			return (T)JSON.DeserializeDynamic(str, _options);
 		}
 
 		public T Deserialize<T>(Stream stream)
 		{
-			return (T)Deserialize(stream, typeof(T));
+			using (var reader = new StreamReader(stream, Encoding.UTF8, true, 2048, true))
+				return (T)JSON.DeserializeDynamic(reader, _options);
 		}
 
 		public T Deserialize<T>(ISerializedContainer container)
@@ -167,19 +154,10 @@ namespace CommonSerializer.Jil
 
 		public void Serialize(ISerializedContainer container, object value, Type type)
 		{
-			var jTokenContainer = container as JilSerializedContainer;
-			if (jTokenContainer == null)
-				throw new ArgumentException("Invalid container. Use the GenerateContainer method.");
+			var jTokenContainer = (JilSerializedContainer)container;
 
-#if DNX451 || NET45
-			using (var stream = _streamManager.GetStream("SerializeContainer"))
-#else
-			using (var stream = new MemoryStream())
-#endif
-			{
-				Serialize(stream, value, type);
-				jTokenContainer.Queue.Enqueue(stream.ToArray());
-			}
+			var data = Serialize(value, type);
+			jTokenContainer.Queue.Enqueue(data);
 		}
 	}
 }

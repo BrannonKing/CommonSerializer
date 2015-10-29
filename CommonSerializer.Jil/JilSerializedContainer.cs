@@ -1,19 +1,15 @@
 using System.Collections.Concurrent;
 using Jil;
+using System.Collections.Generic;
+using System;
+using System.Collections;
 
 namespace CommonSerializer.Jil
 {
-	internal class JilSerializedContainer : ISerializedContainer
+	internal class JilSerializedContainer : IEnumerable<string>, ISerializedContainer
 	{
 		[JilDirective(Ignore = true)]
-		internal ConcurrentQueue<byte[]> Queue = new ConcurrentQueue<byte[]>();
-
-		[JilDirective]
-		private byte[][] Items
-		{
-			get { return Queue.ToArray(); }
-			set { Queue = new ConcurrentQueue<byte[]>(value); }
-		}
+		internal ConcurrentQueue<string> Queue = new ConcurrentQueue<string>();
 
 		[JilDirective(Ignore = true)]
 		public int Count { get { return Queue.Count; } }
@@ -34,6 +30,16 @@ namespace CommonSerializer.Jil
 			{
 				return true;
 			}
+		}
+
+		public IEnumerator<string> GetEnumerator()
+		{
+			return Queue.GetEnumerator();
+		}
+
+		IEnumerator IEnumerable.GetEnumerator()
+		{
+			return GetEnumerator();
 		}
 	}
 }
