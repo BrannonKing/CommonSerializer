@@ -7,7 +7,7 @@ using ProtoBuf.Meta;
 
 namespace CommonSerializer.ProtobufNet
 {
-	public class ProtobufCommonSerializer : ICommonSerializer
+	public class ProtobufCommonSerializer : ICommonSerializerWithContainer
 	{
 		private readonly RuntimeTypeModel _runtime;
 

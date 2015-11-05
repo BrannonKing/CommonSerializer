@@ -7,6 +7,7 @@ using CommonSerializer.Newtonsoft.Json;
 using CommonSerializer.ProtobufNet;
 using CommonSerializer.MsgPack.Cli;
 using CommonSerializer.Jil;
+using System.Linq;
 using Xunit;
 
 namespace Kts.Remoting.Tests
@@ -19,9 +20,9 @@ namespace Kts.Remoting.Tests
 			{
 				yield return new JsonCommonSerializer();
 				yield return new ProtobufCommonSerializer();
-				//yield return new JilCommonSerializer();
+				yield return new JilCommonSerializer();
 				yield return new MsgPackCommonSerializer();
-				//yield return new PowerJsonCommonSerializer();
+				yield return new PowerJsonCommonSerializer();
 			}
 		}
 
@@ -102,7 +103,7 @@ namespace Kts.Remoting.Tests
 		[Fact]
 		public void TestPartialCreation()
 		{
-			foreach (var serializer in Serializers)
+			foreach (var serializer in Serializers.OfType<ICommonSerializerWithContainer>())
 			{
 				var container = serializer.GenerateContainer();
 				Assert.True(container.CanWrite);

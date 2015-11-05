@@ -11,7 +11,7 @@ namespace CommonSerializer.Jil
 
 		public JilCommonSerializer()
 		{
-			_options = Options.IncludeInherited;
+			_options = Options.IncludeInheritedUtc;
 		}
 
 		public JilCommonSerializer(Options options)
@@ -78,41 +78,20 @@ namespace CommonSerializer.Jil
 				return Deserialize(utfReader, type);
 		}
 
-		public object Deserialize(ISerializedContainer container, Type type)
-		{
-			var jTokenContainer = (JilSerializedContainer)container;
-
-			string data;
-			if (!jTokenContainer.Queue.TryDequeue(out data))
-				throw new InvalidDataException("No data available in the container.");
-
-			return Deserialize(data, type);
-		}
-
 		public T Deserialize<T>(TextReader reader)
 		{
-			return (T)JSON.DeserializeDynamic(reader, _options);
+			return (T)JSON.Deserialize<T>(reader, _options);
 		}
 
 		public T Deserialize<T>(string str)
 		{
-			return (T)JSON.DeserializeDynamic(str, _options);
+			return (T)JSON.Deserialize<T>(str, _options);
 		}
 
 		public T Deserialize<T>(Stream stream)
 		{
 			using (var reader = new StreamReader(stream, Encoding.UTF8, true, 2048, true))
-				return (T)JSON.DeserializeDynamic(reader, _options);
-		}
-
-		public T Deserialize<T>(ISerializedContainer container)
-		{
-			return (T)Deserialize(container, typeof(T));
-		}
-
-		public ISerializedContainer GenerateContainer()
-		{
-			return new JilSerializedContainer();
+				return JSON.Deserialize<T>(reader, _options);
 		}
 
 		public string Serialize<T>(T value)
@@ -145,19 +124,6 @@ namespace CommonSerializer.Jil
 		{
 			using (var utfWriter = new StreamWriter(stream, Encoding.UTF8, 2048, true))
 				Serialize(utfWriter, value, type);
-		}
-
-		public void Serialize<T>(ISerializedContainer container, T value)
-		{
-			Serialize(container, value, typeof(T));
-		}
-
-		public void Serialize(ISerializedContainer container, object value, Type type)
-		{
-			var jTokenContainer = (JilSerializedContainer)container;
-
-			var data = Serialize(value, type);
-			jTokenContainer.Queue.Enqueue(data);
 		}
 	}
 }

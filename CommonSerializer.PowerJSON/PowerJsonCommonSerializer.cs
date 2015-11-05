@@ -10,16 +10,11 @@ namespace CommonSerializer.Newtonsoft.Json
 	// To enable this option, right-click on the project and select the Properties menu item. In the Build tab select "Produce outputs on build".
 	public class PowerJsonCommonSerializer : ICommonSerializer
 	{
-		public PowerJsonCommonSerializer()
-		{
-            JSON.Manager.OverrideConverter<ISerializedContainer>(new SerializedContainerConverter());
-        }
-
 		public string Description
 		{
 			get
 			{
-				return "Newtonsoft Json.NET";
+				return "PowerJSON, a derivative of fastJSON";
 			}
 		}
 
@@ -27,7 +22,7 @@ namespace CommonSerializer.Newtonsoft.Json
 		{
 			get
 			{
-				return "Json.NET";
+				return "PowerJSON";
 			}
 		}
 
@@ -60,18 +55,6 @@ namespace CommonSerializer.Newtonsoft.Json
 				return Deserialize(reader.ReadToEnd(), type);
 		}
 
-		public object Deserialize(ISerializedContainer container, Type type)
-		{
-			var jTokenContainer = container as PowerJsonSerializedContainer;
-			if (jTokenContainer == null)
-				throw new ArgumentException("Invalid container. Use the GenerateContainer method.");
-
-			string data;
-			if (jTokenContainer.Queue.TryDequeue(out data))
-				return JSON.ToObject(data, type);
-			return null;
-		}
-
 		public T Deserialize<T>(TextReader reader)
 		{
 			return Deserialize<T>(reader.ReadToEnd());
@@ -86,16 +69,6 @@ namespace CommonSerializer.Newtonsoft.Json
 		public T Deserialize<T>(Stream stream)
 		{
 			return (T)Deserialize(stream, typeof(T));
-		}
-
-		public T Deserialize<T>(ISerializedContainer container)
-		{
-			return (T)Deserialize(container, typeof(T));
-		}
-
-		public ISerializedContainer GenerateContainer()
-		{
-			return new PowerJsonSerializedContainer();
 		}
 
 		public string Serialize<T>(T value)
@@ -127,21 +100,6 @@ namespace CommonSerializer.Newtonsoft.Json
 		{
 			using (var writer = new StreamWriter(stream, Encoding.UTF8, 2048, true))
 				writer.Write(JSON.ToJSON(value));
-		}
-
-		public void Serialize<T>(ISerializedContainer container, T value)
-		{
-			Serialize(container, value, typeof(T));
-		}
-
-		public void Serialize(ISerializedContainer container, object value, Type type)
-		{
-			var jTokenContainer = container as PowerJsonSerializedContainer;
-			if (jTokenContainer == null)
-				throw new ArgumentException("Invalid container. Use the GenerateContainer method.");
-
-			var data = JSON.ToJSON(value);
-			jTokenContainer.Queue.Enqueue(data);
 		}
 	}
 }
