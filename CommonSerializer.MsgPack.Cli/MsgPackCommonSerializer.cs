@@ -13,7 +13,7 @@ namespace CommonSerializer.MsgPack.Cli
 		public MsgPackCommonSerializer(SerializationContext context)
 		{
 			_context = context;
-            context.Serializers.RegisterOverride(new MessagePackSerializedContainerSerializer());
+            context.Serializers.RegisterOverride(new MessagePackSerializedContainerSerializer(context));
 		}
 
 		public MsgPackCommonSerializer() : this(SerializationContext.Default)

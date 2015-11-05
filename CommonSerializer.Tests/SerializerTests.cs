@@ -19,8 +19,8 @@ namespace Kts.Remoting.Tests
 			{
 				yield return new JsonCommonSerializer();
 				yield return new ProtobufCommonSerializer();
-				yield return new JilCommonSerializer();
-				//yield return new MsgPackCommonSerializer();
+				//yield return new JilCommonSerializer();
+				yield return new MsgPackCommonSerializer();
 				//yield return new PowerJsonCommonSerializer();
 			}
 		}
