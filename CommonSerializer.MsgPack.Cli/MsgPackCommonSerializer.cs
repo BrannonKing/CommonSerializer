@@ -1,13 +1,12 @@
 ﻿using System;
 using System.IO;
-using System.Reflection;
 using System.Text;
 using MsgPack;
 using MsgPack.Serialization;
 
 namespace CommonSerializer.MsgPack.Cli
 {
-	public class MsgPackCommonSerializer: ICommonSerializer
+	public class MsgPackCommonSerializer: ICommonSerializerWithContainer
 	{
 		private readonly SerializationContext _context;
 		public MsgPackCommonSerializer(SerializationContext context)
@@ -171,5 +170,12 @@ namespace CommonSerializer.MsgPack.Cli
 			var bytes = _context.GetSerializer(type).PackSingleObject(value); // TODO: use recyclable memory pool
 			psc.Queue.Enqueue(bytes);
 		}
-    }
+
+		public void RegisterSubtype<TBase, TInheritor>(int fieldNumber = -1)
+		{
+			_context.GetSerializer<TBase>();
+			_context.GetSerializer<TInheritor>();
+			// I don't think it's actually supported
+		}
+	}
 }

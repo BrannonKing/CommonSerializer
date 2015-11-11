@@ -1,10 +1,9 @@
 ﻿using System;
 using System.IO;
 using System.Text;
-
 using fastJSON;
 
-namespace CommonSerializer.Newtonsoft.Json
+namespace CommonSerializer.PowerJSON
 {
 	// This project can output the Class library as a NuGet Package.
 	// To enable this option, right-click on the project and select the Properties menu item. In the Build tab select "Produce outputs on build".
@@ -100,6 +99,10 @@ namespace CommonSerializer.Newtonsoft.Json
 		{
 			using (var writer = new StreamWriter(stream, Encoding.UTF8, 2048, true))
 				writer.Write(JSON.ToJSON(value));
+		}
+
+		public void RegisterSubtype<TBase, TInheritor>(int fieldNumber = -1)
+		{
 		}
 	}
 }

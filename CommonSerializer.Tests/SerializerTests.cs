@@ -1,16 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Runtime.Serialization;
-using CommonSerializer;
-using CommonSerializer.Newtonsoft.Json;
-using CommonSerializer.ProtobufNet;
-using CommonSerializer.MsgPack.Cli;
-using CommonSerializer.Jil;
 using System.Linq;
+using System.Runtime.Serialization;
+using CommonSerializer.Jil;
+using CommonSerializer.MsgPack.Cli;
+using CommonSerializer.Newtonsoft.Json;
+using CommonSerializer.PowerJSON;
+using CommonSerializer.ProtobufNet;
 using Xunit;
 
-namespace Kts.Remoting.Tests
+namespace CommonSerializer.Tests
 {
 	public class SerializerTests
 	{
@@ -194,6 +194,11 @@ namespace Kts.Remoting.Tests
 	[DataContract]
 	public class SubTestData
 	{
+		public SubTestData()
+		{
+			Name = "default";
+		}
+
 		[DataMember(Order = 1)]
 		public string Name { get; set; }
 

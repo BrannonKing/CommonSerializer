@@ -7,7 +7,7 @@
         "type": "project",
         "framework": ".NETFramework,Version=v4.5"
       },
-      "PowerJSON/2.4.0.3": {
+      "PowerJSON/2.5.0": {
         "type": "package",
         "compile": {
           "lib/net40/fastJSON.dll": {}
@@ -22,7 +22,7 @@
         "type": "project",
         "framework": "DNX,Version=v4.5.1"
       },
-      "PowerJSON/2.4.0.3": {
+      "PowerJSON/2.5.0": {
         "type": "package",
         "compile": {
           "lib/net40/fastJSON.dll": {}
@@ -37,7 +37,7 @@
         "type": "project",
         "framework": ".NETFramework,Version=v4.5"
       },
-      "PowerJSON/2.4.0.3": {
+      "PowerJSON/2.5.0": {
         "type": "package",
         "compile": {
           "lib/net40/fastJSON.dll": {}
@@ -52,7 +52,7 @@
         "type": "project",
         "framework": ".NETFramework,Version=v4.5"
       },
-      "PowerJSON/2.4.0.3": {
+      "PowerJSON/2.5.0": {
         "type": "package",
         "compile": {
           "lib/net40/fastJSON.dll": {}
@@ -67,7 +67,7 @@
         "type": "project",
         "framework": "DNX,Version=v4.5.1"
       },
-      "PowerJSON/2.4.0.3": {
+      "PowerJSON/2.5.0": {
         "type": "package",
         "compile": {
           "lib/net40/fastJSON.dll": {}
@@ -82,7 +82,7 @@
         "type": "project",
         "framework": "DNX,Version=v4.5.1"
       },
-      "PowerJSON/2.4.0.3": {
+      "PowerJSON/2.5.0": {
         "type": "package",
         "compile": {
           "lib/net40/fastJSON.dll": {}
@@ -98,9 +98,9 @@
       "type": "project",
       "path": "../CommonSerializer/project.json"
     },
-    "PowerJSON/2.4.0.3": {
+    "PowerJSON/2.5.0": {
       "type": "package",
-      "sha512": "ym/tVPQ7xvxmzYDX+FqvZTi1mnx1IJW/WbPJb07gxAtRxKymrfL/8pGlbUKWs60kdlRKdE8YcCE5vMVHkzRC+w==",
+      "sha512": "SeUmXUux3S7V+A4IHV/XbKLEMaB1yifecOHRDmt5Bx+6CuAVPA2IWmeS/blyZoGHq0GXVtp+SnpQcQwugx4aOQ==",
       "files": [
         "lib/net20/fastJSON.dll",
         "lib/net20/fastJSON.XML",
@@ -108,8 +108,8 @@
         "lib/net40/fastJSON.XML",
         "lib/net40-client/fastJSON.dll",
         "lib/net40-client/fastJSON.XML",
-        "PowerJSON.2.4.0.3.nupkg",
-        "PowerJSON.2.4.0.3.nupkg.sha512",
+        "PowerJSON.2.5.0.nupkg",
+        "PowerJSON.2.5.0.nupkg.sha512",
         "PowerJSON.chm",
         "PowerJSON.nuspec"
       ]
@@ -118,7 +118,7 @@
   "projectFileDependencyGroups": {
     "": [
       "CommonSerializer >= 1.0.0-*",
-      "PowerJSON >= 2.4.0.3"
+      "PowerJSON >= 2.5.0"
     ],
     ".NETFramework,Version=v4.5": [],
     "DNX,Version=v4.5.1": []

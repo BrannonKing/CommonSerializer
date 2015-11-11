@@ -125,5 +125,11 @@ namespace CommonSerializer.Jil
 			using (var utfWriter = new StreamWriter(stream, Encoding.UTF8, 2048, true))
 				Serialize(utfWriter, value, type);
 		}
+
+		public void RegisterSubtype<TBase, TInheritor>(int fieldNumber = -1)
+		{
+			if ((_options.GetHashCode() & 0x8) == 0)
+				throw new Exception("Inheritance must be specified in the options.");
+		}
 	}
 }

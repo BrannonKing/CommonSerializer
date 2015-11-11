@@ -26,7 +26,8 @@ namespace CommonSerializer
 		object Deserialize(string str, Type type);
 
 		T DeepClone<T>(T t);
-	}
+		void RegisterSubtype<TBase, TInheritor>(int fieldNumber = -1);
+    }
 
 	public interface ICommonSerializerWithContainer: ICommonSerializer
 	{

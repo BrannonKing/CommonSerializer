@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 using System;
 using System.IO;
 using System.Text;
@@ -65,6 +66,13 @@ namespace CommonSerializer.Newtonsoft.Json
 				//using (var reader = new BsonReader(ms))
 				//	return _serializer.Deserialize<T>(reader);
 			}
+		}
+
+		public void RegisterSubtype<TBase, TInheritor>(int fieldNumber = -1)
+		{
+			var contract = _serializer.ContractResolver.ResolveContract(typeof(TBase)) as JsonContainerContract;
+			if (contract != null && contract.ItemTypeNameHandling == TypeNameHandling.None && _serializer.TypeNameHandling != TypeNameHandling.Auto)
+				contract.ItemTypeNameHandling = TypeNameHandling.Auto;
 		}
 
 		public object Deserialize(string str, Type type)

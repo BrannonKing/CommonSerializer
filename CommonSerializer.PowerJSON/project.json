@@ -8,12 +8,11 @@
 
 	"frameworks": {
 		"net45": { },
-		"dnx451": {
-		}
+		"dnx451": { }
 	},
 
     "dependencies": {
         "CommonSerializer": "1.0.0-*",
-        "PowerJSON": "2.4.0.3"
+        "PowerJSON": "2.5.0"
     }
 }
