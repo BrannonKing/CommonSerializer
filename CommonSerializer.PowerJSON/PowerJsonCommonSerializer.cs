@@ -9,6 +9,20 @@ namespace CommonSerializer.PowerJSON
 	// To enable this option, right-click on the project and select the Properties menu item. In the Build tab select "Produce outputs on build".
 	public class PowerJsonCommonSerializer : ICommonSerializer
 	{
+		private readonly SerializationManager _manager;
+		private readonly JSONParameters _parameters;
+
+		public PowerJsonCommonSerializer()
+			: this(JSON.Manager, JSON.Parameters)
+		{
+		}
+
+		public PowerJsonCommonSerializer(SerializationManager manager, JSONParameters parameters)
+		{
+			_manager = manager;
+			_parameters = parameters;
+		}
+
 		public string Description
 		{
 			get
@@ -35,12 +49,12 @@ namespace CommonSerializer.PowerJSON
 
 		public T DeepClone<T>(T t)
 		{
-			return JSON.DeepCopy(t);
+			return JSON.DeepCopy(t, _parameters, _manager);
 		}
 
 		public object Deserialize(string str, Type type)
 		{
-			return JSON.ToObject(str, type);
+			return JSON.ToObject(str, type, _parameters, _manager);
 		}
 
 		public object Deserialize(TextReader reader, Type type)
@@ -62,7 +76,7 @@ namespace CommonSerializer.PowerJSON
 
 		public T Deserialize<T>(string str)
 		{
-			return JSON.ToObject<T>(str);
+			return JSON.ToObject<T>(str, _parameters, _manager);
 		}
 
 		public T Deserialize<T>(Stream stream)
@@ -72,22 +86,22 @@ namespace CommonSerializer.PowerJSON
 
 		public string Serialize<T>(T value)
 		{
-			return JSON.ToJSON(value);
+			return JSON.ToJSON(value, _parameters, _manager);
 		}
 
 		public string Serialize(object value, Type type)
 		{
-			return JSON.ToJSON(value);
+			return JSON.ToJSON(value, _parameters, _manager);
 		}
 
 		public void Serialize<T>(TextWriter writer, T value)
 		{
-			writer.Write(JSON.ToJSON(value));
+			writer.Write(JSON.ToJSON(value, _parameters, _manager));
 		}
 
 		public void Serialize(TextWriter writer, object value, Type type)
 		{
-			writer.Write(JSON.ToJSON(value));
+			writer.Write(JSON.ToJSON(value, _parameters, _manager));
 		}
 
 		public void Serialize<T>(Stream stream, T value)
@@ -98,7 +112,7 @@ namespace CommonSerializer.PowerJSON
 		public void Serialize(Stream stream, object value, Type type)
 		{
 			using (var writer = new StreamWriter(stream, Encoding.UTF8, 2048, true))
-				writer.Write(JSON.ToJSON(value));
+				writer.Write(JSON.ToJSON(value, _parameters, _manager));
 		}
 
 		public void RegisterSubtype<TBase, TInheritor>(int fieldNumber = -1)
