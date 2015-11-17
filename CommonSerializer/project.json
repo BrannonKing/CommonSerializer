@@ -1,10 +1,10 @@
 ﻿{
 	"version": "1.0.0-*",
-	"description": "CommonSerializer Class Library",
+	"description": "CommonSerializer Base Class Library",
 	"authors": [ "Brannon King" ],
-	"tags": [ "" ],
-	"projectUrl": "",
-	"licenseUrl": "",
+  "tags": [ "serializer serialization common" ],
+  "projectUrl": "https://github.com/BrannonKing/CommonSerializer",
+  "licenseUrl": "https://raw.githubusercontent.com/BrannonKing/CommonSerializer/master/LICENSE",
 
 	"frameworks": {
 		"net45": { },

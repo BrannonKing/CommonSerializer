@@ -81,6 +81,61 @@ namespace CommonSerializer.Tests
 			}
 		}
 
+		[Fact]
+		public void RoundTripWithType()
+		{
+			var data = new TestData
+			{
+				TestBool = true,
+				TestByteArray = new byte[] { 0x00, 0x02, 0x04, 0x05, 0x01 },
+				TestDouble = 7.0,
+				TestByte = 0xff,
+				TestDateTime = new DateTime(2089, 9, 27),
+				TestInt = 7,
+				TestList = new List<int> { 4, 55, 4, 6, 7 },
+				TestLong = 777,
+				TestShort = 456,
+				TestString = "Hello World!",
+				TestChar = 'R',
+				TestDecimal = 100,
+				TestsByte = 0x05,
+				TestuInt = 80,
+				DontGo = 42,
+				Children = new List<SubTestData> { new SubTestData { Name = "one" }, new SubTestData { Name = "two" } }
+			};
+
+			foreach (var serializer in Serializers)
+			{
+				using (var stream = new MemoryStream())
+				{
+					serializer.Serialize(stream, data, data.GetType());
+					stream.Position = 0;
+					var result = (TestData)serializer.Deserialize(stream, data.GetType());
+					VerifyEqual(data, result);
+				}
+
+				using (var stream = new MemoryStream())
+				using (var writer = new StreamWriter(stream))
+				{
+					serializer.Serialize(writer, data, data.GetType());
+					writer.Flush();
+					stream.Position = 0;
+					using (var reader = new StreamReader(stream))
+					{
+						var result = (TestData)serializer.Deserialize(reader, typeof(TestData));
+						VerifyEqual(data, result);
+					}
+				}
+
+				var str = serializer.Serialize(data, typeof(TestData));
+				var result2 = (TestData)serializer.Deserialize(str, typeof(TestData));
+				VerifyEqual(data, result2);
+
+				var clone = serializer.DeepClone(data);
+				VerifyEqual(data, clone);
+			}
+		}
+
 		private void VerifyEqual(TestData data, TestData result)
 		{
 			Assert.Equal(data.Children, result.Children);

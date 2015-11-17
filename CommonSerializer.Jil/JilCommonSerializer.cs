@@ -43,21 +43,16 @@ namespace CommonSerializer.Jil
 			}
 		}
 
-#if DNX451 || NET45
-		private static readonly Microsoft.IO.RecyclableMemoryStreamManager _streamManager = new Microsoft.IO.RecyclableMemoryStreamManager();
-#endif
-
 		public T DeepClone<T>(T t)
 		{
-#if DNX451 || NET45
-			using (var ms = _streamManager.GetStream("Clone"))
-#else
-			using(var ms = new MemoryStream())
-#endif
+			using (var ms = new MemoryStream())
+			using (var writer = new StreamWriter(ms))
 			{
-				Serialize(ms, t);
+				JSON.Serialize(t, writer, _options);
+				writer.Flush();
 				ms.Position = 0;
-				return (T)Deserialize(ms, t.GetType());
+				using (var reader = new StreamReader(ms))
+					return (T)JSON.Deserialize(reader, t.GetType(), _options);
 			}
 		}
 
@@ -80,12 +75,12 @@ namespace CommonSerializer.Jil
 
 		public T Deserialize<T>(TextReader reader)
 		{
-			return (T)JSON.Deserialize<T>(reader, _options);
+			return JSON.Deserialize<T>(reader, _options);
 		}
 
 		public T Deserialize<T>(string str)
 		{
-			return (T)JSON.Deserialize<T>(str, _options);
+			return JSON.Deserialize<T>(str, _options);
 		}
 
 		public T Deserialize<T>(Stream stream)
@@ -111,7 +106,7 @@ namespace CommonSerializer.Jil
 
 		public void Serialize(TextWriter writer, object value, Type type)
 		{
-			JSON.Serialize(value, writer, _options); // no place to use type with this serializer
+			JSON.Serialize(value, writer, _options);
 		}
 
 		public void Serialize<T>(Stream stream, T value)
@@ -122,8 +117,7 @@ namespace CommonSerializer.Jil
 
 		public void Serialize(Stream stream, object value, Type type)
 		{
-			using (var utfWriter = new StreamWriter(stream, Encoding.UTF8, 2048, true))
-				Serialize(utfWriter, value, type);
+			Serialize(stream, value);
 		}
 
 		public void RegisterSubtype<TBase, TInheritor>(int fieldNumber = -1)

@@ -22,15 +22,6 @@
           "lib/net45/Jil.dll": {}
         }
       },
-      "Microsoft.IO.RecyclableMemoryStream/1.1.0": {
-        "type": "package",
-        "compile": {
-          "lib/net45/Microsoft.IO.RecyclableMemoryStream.dll": {}
-        },
-        "runtime": {
-          "lib/net45/Microsoft.IO.RecyclableMemoryStream.dll": {}
-        }
-      },
       "Sigil/4.5.0": {
         "type": "package",
         "compile": {
@@ -59,15 +50,6 @@
         },
         "runtime": {
           "lib/net45/Jil.dll": {}
-        }
-      },
-      "Microsoft.IO.RecyclableMemoryStream/1.1.0": {
-        "type": "package",
-        "compile": {
-          "lib/net45/Microsoft.IO.RecyclableMemoryStream.dll": {}
-        },
-        "runtime": {
-          "lib/net45/Microsoft.IO.RecyclableMemoryStream.dll": {}
         }
       },
       "Sigil/4.5.0": {
@@ -100,15 +82,6 @@
           "lib/net45/Jil.dll": {}
         }
       },
-      "Microsoft.IO.RecyclableMemoryStream/1.1.0": {
-        "type": "package",
-        "compile": {
-          "lib/net45/Microsoft.IO.RecyclableMemoryStream.dll": {}
-        },
-        "runtime": {
-          "lib/net45/Microsoft.IO.RecyclableMemoryStream.dll": {}
-        }
-      },
       "Sigil/4.5.0": {
         "type": "package",
         "compile": {
@@ -137,15 +110,6 @@
         },
         "runtime": {
           "lib/net45/Jil.dll": {}
-        }
-      },
-      "Microsoft.IO.RecyclableMemoryStream/1.1.0": {
-        "type": "package",
-        "compile": {
-          "lib/net45/Microsoft.IO.RecyclableMemoryStream.dll": {}
-        },
-        "runtime": {
-          "lib/net45/Microsoft.IO.RecyclableMemoryStream.dll": {}
         }
       },
       "Sigil/4.5.0": {
@@ -178,15 +142,6 @@
           "lib/net45/Jil.dll": {}
         }
       },
-      "Microsoft.IO.RecyclableMemoryStream/1.1.0": {
-        "type": "package",
-        "compile": {
-          "lib/net45/Microsoft.IO.RecyclableMemoryStream.dll": {}
-        },
-        "runtime": {
-          "lib/net45/Microsoft.IO.RecyclableMemoryStream.dll": {}
-        }
-      },
       "Sigil/4.5.0": {
         "type": "package",
         "compile": {
@@ -217,15 +172,6 @@
           "lib/net45/Jil.dll": {}
         }
       },
-      "Microsoft.IO.RecyclableMemoryStream/1.1.0": {
-        "type": "package",
-        "compile": {
-          "lib/net45/Microsoft.IO.RecyclableMemoryStream.dll": {}
-        },
-        "runtime": {
-          "lib/net45/Microsoft.IO.RecyclableMemoryStream.dll": {}
-        }
-      },
       "Sigil/4.5.0": {
         "type": "package",
         "compile": {
@@ -252,16 +198,6 @@
         "lib/net45/Jil.dll",
         "lib/net45/Jil.pdb",
         "lib/net45/Jil.XML"
-      ]
-    },
-    "Microsoft.IO.RecyclableMemoryStream/1.1.0": {
-      "type": "package",
-      "sha512": "VcPf2hZI0+jVp+Jr55lLnfhSgMIIodHVWYZ4LxKForHBOdjoleSWkcgEcdFKQ230jeQ3ZUBgVYbXKRuU0rIJTw==",
-      "files": [
-        "lib/net45/Microsoft.IO.RecyclableMemoryStream.dll",
-        "Microsoft.IO.RecyclableMemoryStream.1.1.0.nupkg",
-        "Microsoft.IO.RecyclableMemoryStream.1.1.0.nupkg.sha512",
-        "Microsoft.IO.RecyclableMemoryStream.nuspec"
       ]
     },
     "Sigil/4.5.0": {
@@ -292,8 +228,7 @@
   "projectFileDependencyGroups": {
     "": [
       "CommonSerializer >= 1.0.0-*",
-      "Jil >= 2.12.1",
-      "Microsoft.IO.RecyclableMemoryStream >= 1.1.0"
+      "Jil >= 2.12.1"
     ],
     ".NETFramework,Version=v4.5": [],
     "DNX,Version=v4.5.1": []

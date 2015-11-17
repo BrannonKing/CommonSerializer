@@ -1,17 +1,16 @@
 {
   "version": "1.0.0-*",
-  "description": "CommonSerializer.Jil Class Library",
-  "authors": [ "notac" ],
-  "tags": [ "" ],
-  "projectUrl": "",
-  "licenseUrl": "",
+  "description": "CommonSerializer.Jil Class Lib rary",
+  "authors": [ "Brannon King" ],
+  "tags": [ "serializer serialization common jil" ],
+  "projectUrl": "https://github.com/BrannonKing/CommonSerializer",
+  "licenseUrl": "https://raw.githubusercontent.com/BrannonKing/CommonSerializer/master/LICENSE",
 	"frameworks": {
 		"net45": { },
 		"dnx451": { },
 	},
     "dependencies": {
         "CommonSerializer": "1.0.0-*",
-        "Jil": "2.12.1",
-        "Microsoft.IO.RecyclableMemoryStream": "1.1.0"
+        "Jil": "2.12.1"
     }
 }
