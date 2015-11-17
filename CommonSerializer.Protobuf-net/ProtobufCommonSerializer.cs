@@ -125,11 +125,6 @@ namespace CommonSerializer.ProtobufNet
 			return new ProtobufSerializedContainer();
 		}
 
-		public void RegisterSubtype<TBase, TInheritor>(int fieldNumber)
-		{
-			_runtime[typeof(TBase)].AddSubType(fieldNumber, typeof(TInheritor));
-		}
-
 		public string Serialize<T>(T value)
 		{
 			return Serialize(value, typeof(T));
@@ -193,6 +188,16 @@ namespace CommonSerializer.ProtobufNet
 				Serialize(stream, value, type);
 				psc.Queue.Enqueue(stream.ToArray());
 			}
+		}
+
+		public void RegisterSubtype<TBase, TInheritor>(int fieldNumber)
+		{
+			RegisterSubtype<TBase>(typeof(TInheritor), fieldNumber);
+		}
+
+		public void RegisterSubtype<TBase>(Type inheritor, int fieldNumber)
+		{
+			_runtime[typeof(TBase)].AddSubType(fieldNumber, inheritor);
 		}
 	}
 }

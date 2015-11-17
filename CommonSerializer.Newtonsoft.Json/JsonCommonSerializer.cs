@@ -68,13 +68,6 @@ namespace CommonSerializer.Newtonsoft.Json
 			}
 		}
 
-		public void RegisterSubtype<TBase, TInheritor>(int fieldNumber = -1)
-		{
-			var contract = _serializer.ContractResolver.ResolveContract(typeof(TBase)) as JsonContainerContract;
-			if (contract != null && contract.ItemTypeNameHandling == TypeNameHandling.None && _serializer.TypeNameHandling != TypeNameHandling.Auto)
-				contract.ItemTypeNameHandling = TypeNameHandling.Auto;
-		}
-
 		public object Deserialize(string str, Type type)
 		{
 			using (var reader = new StringReader(str))
@@ -186,6 +179,18 @@ namespace CommonSerializer.Newtonsoft.Json
 
 			using (var writer = jTokenContainer.Array.CreateWriter())
 				_serializer.Serialize(writer, value, type);
+		}
+
+		public void RegisterSubtype<TBase, TInheritor>(int fieldNumber = -1)
+		{
+			RegisterSubtype<TBase>(typeof(TInheritor), fieldNumber);
+		}
+
+		public void RegisterSubtype<TBase>(Type inheritor, int fieldNumber = -1)
+		{
+			var contract = _serializer.ContractResolver.ResolveContract(typeof(TBase)) as JsonContainerContract;
+			if (contract != null && contract.ItemTypeNameHandling == TypeNameHandling.None && _serializer.TypeNameHandling != TypeNameHandling.Auto)
+				contract.ItemTypeNameHandling = TypeNameHandling.Auto;
 		}
 	}
 }

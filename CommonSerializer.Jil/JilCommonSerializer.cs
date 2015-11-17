@@ -128,6 +128,11 @@ namespace CommonSerializer.Jil
 
 		public void RegisterSubtype<TBase, TInheritor>(int fieldNumber = -1)
 		{
+			RegisterSubtype<TBase>(typeof(TInheritor), fieldNumber);
+		}
+
+		public void RegisterSubtype<TBase>(Type inheritor, int fieldNumber = -1)
+		{
 			if ((_options.GetHashCode() & 0x8) == 0)
 				throw new Exception("Inheritance must be specified in the options.");
 		}

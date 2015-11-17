@@ -103,6 +103,12 @@ namespace CommonSerializer.PowerJSON
 
 		public void RegisterSubtype<TBase, TInheritor>(int fieldNumber = -1)
 		{
+			RegisterSubtype<TBase>(typeof(TInheritor), fieldNumber);
+		}
+
+		public void RegisterSubtype<TBase>(Type inheritor, int fieldNumber = -1)
+		{
+			// no way to turn it off that I can see
 		}
 	}
 }

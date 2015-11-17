@@ -173,8 +173,13 @@ namespace CommonSerializer.MsgPack.Cli
 
 		public void RegisterSubtype<TBase, TInheritor>(int fieldNumber = -1)
 		{
+			RegisterSubtype<TBase>(typeof(TInheritor), fieldNumber);
+		}
+
+		public void RegisterSubtype<TBase>(Type inheritor, int fieldNumber = -1)
+		{
 			_context.GetSerializer<TBase>();
-			_context.GetSerializer<TInheritor>();
+			_context.GetSerializer(inheritor);
 			// I don't think it's actually supported
 		}
 	}
