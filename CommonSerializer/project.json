@@ -1,10 +1,11 @@
 ﻿{
-	"version": "1.0.0-*",
+	"version": "1.0.1-*",
 	"description": "CommonSerializer Base Class Library",
 	"authors": [ "Brannon King" ],
-  "tags": [ "serializer serialization common" ],
-  "projectUrl": "https://github.com/BrannonKing/CommonSerializer",
-  "licenseUrl": "https://raw.githubusercontent.com/BrannonKing/CommonSerializer/master/LICENSE",
+	"tags": [ "serializer serialization common" ],
+	"releaseNotes": "Added overload for RegisterSubtype",
+	"projectUrl": "https://github.com/BrannonKing/CommonSerializer",
+	"licenseUrl": "https://raw.githubusercontent.com/BrannonKing/CommonSerializer/master/LICENSE",
 
 	"frameworks": {
 		"net45": { },

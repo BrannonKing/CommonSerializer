@@ -1,19 +1,19 @@
 {
-	"version": "1.0.0-*",
+	"version": "1.0.1-*",
 	"description": "CommonSerializer.PowerJSON Class Library",
 	"authors": [ "Brannon.King" ],
-  "tags": [ "serializer serialization common powerjson fastjson" ],
-  "projectUrl": "https://github.com/BrannonKing/CommonSerializer",
-  "licenseUrl": "https://raw.githubusercontent.com/BrannonKing/CommonSerializer/master/LICENSE",
-
-
+	"tags": [ "serializer serialization common powerjson fastjson" ],
+	"releaseNotes": "Added overload for RegisterSubtype",
+	"projectUrl": "https://github.com/BrannonKing/CommonSerializer",
+	"licenseUrl": "https://raw.githubusercontent.com/BrannonKing/CommonSerializer/master/LICENSE",
+	
 	"frameworks": {
 		"net45": { },
 		"dnx451": { }
 	},
 
-    "dependencies": {
-        "CommonSerializer": "1.0.0-*",
-        "PowerJSON": "2.5.0"
-    }
+	"dependencies": {
+		"CommonSerializer": "1.0.1-*",
+		"PowerJSON": "2.5.0"
+	}
 }

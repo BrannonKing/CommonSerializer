@@ -1,16 +1,17 @@
 {
-  "version": "1.0.0-*",
-  "description": "CommonSerializer.Jil Class Lib rary",
-  "authors": [ "Brannon King" ],
-  "tags": [ "serializer serialization common jil" ],
-  "projectUrl": "https://github.com/BrannonKing/CommonSerializer",
-  "licenseUrl": "https://raw.githubusercontent.com/BrannonKing/CommonSerializer/master/LICENSE",
+	"version": "1.0.1-*",
+	"description": "CommonSerializer.Jil Class Lib rary",
+	"authors": [ "Brannon King" ],
+	"tags": [ "serializer serialization common jil" ],
+	"releaseNotes": "Added overload for RegisterSubtype",
+	"projectUrl": "https://github.com/BrannonKing/CommonSerializer",
+	"licenseUrl": "https://raw.githubusercontent.com/BrannonKing/CommonSerializer/master/LICENSE",
 	"frameworks": {
 		"net45": { },
 		"dnx451": { },
 	},
-    "dependencies": {
-        "CommonSerializer": "1.0.0-*",
-        "Jil": "2.12.1"
-    }
+	"dependencies": {
+		"CommonSerializer": "1.0.1-*",
+		"Jil": "2.12.1"
+	}
 }

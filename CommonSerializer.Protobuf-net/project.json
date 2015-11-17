@@ -1,23 +1,24 @@
 {
-	"version": "1.0.0-*",
+	"version": "1.0.1-*",
 	"description": "CommonSerializer.Protobuf-net Class Library",
 	"authors": [ "Brannon King" ],
-  "tags": [ "serializer serialization common protobuf protobuf-net" ],
-  "projectUrl": "https://github.com/BrannonKing/CommonSerializer",
-  "licenseUrl": "https://raw.githubusercontent.com/BrannonKing/CommonSerializer/master/LICENSE",
+	"tags": [ "serializer serialization common protobuf protobuf-net" ],
+	"releaseNotes": "Added overload for RegisterSubtype",
+	"projectUrl": "https://github.com/BrannonKing/CommonSerializer",
+	"licenseUrl": "https://raw.githubusercontent.com/BrannonKing/CommonSerializer/master/LICENSE",
 
 	"frameworks": {
 		"net45": {
-            "dependencies": {
-                "Microsoft.IO.RecyclableMemoryStream": "1.1.0",
-                "protobuf-net": "2.0.0.668"
-            }
+			"dependencies": {
+				"Microsoft.IO.RecyclableMemoryStream": "1.1.0",
+				"protobuf-net": "2.0.0.668"
+			}
 		},
 		"dnx451": {
-            "dependencies": {
-                "Microsoft.IO.RecyclableMemoryStream": "1.1.0",
-                "protobuf-net": "2.0.0.668"
-            }
+			"dependencies": {
+				"Microsoft.IO.RecyclableMemoryStream": "1.1.0",
+				"protobuf-net": "2.0.0.668"
+			}
 		},
 		"dnxcore50": {
 			"dependencies": {
@@ -32,6 +33,6 @@
 		}
 	},
 	"dependencies": {
-        "CommonSerializer": "1.0.0-*"
+		"CommonSerializer": "1.0.1-*"
 	}
 }

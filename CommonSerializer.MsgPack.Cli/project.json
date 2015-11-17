@@ -1,26 +1,27 @@
 {
-	"version": "1.0.0-*",
+	"version": "1.0.1-*",
 	"description": "CommonSerializer.MsgPack.Cli Class Library",
 	"authors": [ "Brannon King" ],
-  "tags": [ "serializer serialization common msgpack messagepack msgpack.cli" ],
-  "projectUrl": "https://github.com/BrannonKing/CommonSerializer",
-  "licenseUrl": "https://raw.githubusercontent.com/BrannonKing/CommonSerializer/master/LICENSE",
+	"tags": [ "serializer serialization common msgpack messagepack msgpack.cli" ],
+	"releaseNotes": "Added overload for RegisterSubtype",
+	"projectUrl": "https://github.com/BrannonKing/CommonSerializer",
+	"licenseUrl": "https://raw.githubusercontent.com/BrannonKing/CommonSerializer/master/LICENSE",
 
 	"frameworks": {
-        "net45": {
-            "dependencies": {
-                "MsgPack.Cli": "0.6.5",
-		        "Microsoft.IO.RecyclableMemoryStream": "1.1.0"
-            }
-        },
-        "dnx451": {
-            "dependencies": {
-                "MsgPack.Cli": "0.6.5",
-		        "Microsoft.IO.RecyclableMemoryStream": "1.1.0"
-            }
-        }
+		"net45": {
+			"dependencies": {
+				"MsgPack.Cli": "0.6.5",
+				"Microsoft.IO.RecyclableMemoryStream": "1.1.0"
+			}
+		},
+		"dnx451": {
+			"dependencies": {
+				"MsgPack.Cli": "0.6.5",
+				"Microsoft.IO.RecyclableMemoryStream": "1.1.0"
+			}
+		}
 	},
-    "dependencies": {
-        "CommonSerializer": "1.0.0-*"
-    }
+	"dependencies": {
+		"CommonSerializer": "1.0.1-*"
+	}
 }

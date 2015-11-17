@@ -3,7 +3,7 @@
   "version": 2,
   "targets": {
     ".NETFramework,Version=v4.5": {
-      "CommonSerializer/1.0.0": {
+      "CommonSerializer/1.0.1": {
         "type": "project",
         "framework": ".NETFramework,Version=v4.5"
       },
@@ -27,7 +27,7 @@
       }
     },
     "DNX,Version=v4.5.1": {
-      "CommonSerializer/1.0.0": {
+      "CommonSerializer/1.0.1": {
         "type": "project",
         "framework": "DNX,Version=v4.5.1"
       },
@@ -51,7 +51,7 @@
       }
     },
     ".NETFramework,Version=v4.5/win7-x86": {
-      "CommonSerializer/1.0.0": {
+      "CommonSerializer/1.0.1": {
         "type": "project",
         "framework": ".NETFramework,Version=v4.5"
       },
@@ -75,7 +75,7 @@
       }
     },
     ".NETFramework,Version=v4.5/win7-x64": {
-      "CommonSerializer/1.0.0": {
+      "CommonSerializer/1.0.1": {
         "type": "project",
         "framework": ".NETFramework,Version=v4.5"
       },
@@ -99,7 +99,7 @@
       }
     },
     "DNX,Version=v4.5.1/win7-x86": {
-      "CommonSerializer/1.0.0": {
+      "CommonSerializer/1.0.1": {
         "type": "project",
         "framework": "DNX,Version=v4.5.1"
       },
@@ -123,7 +123,7 @@
       }
     },
     "DNX,Version=v4.5.1/win7-x64": {
-      "CommonSerializer/1.0.0": {
+      "CommonSerializer/1.0.1": {
         "type": "project",
         "framework": "DNX,Version=v4.5.1"
       },
@@ -148,7 +148,7 @@
     }
   },
   "libraries": {
-    "CommonSerializer/1.0.0": {
+    "CommonSerializer/1.0.1": {
       "type": "project",
       "path": "../CommonSerializer/project.json"
     },
@@ -192,7 +192,7 @@
   },
   "projectFileDependencyGroups": {
     "": [
-      "CommonSerializer >= 1.0.0-*"
+      "CommonSerializer >= 1.0.1-*"
     ],
     ".NETFramework,Version=v4.5": [
       "MsgPack.Cli >= 0.6.5",

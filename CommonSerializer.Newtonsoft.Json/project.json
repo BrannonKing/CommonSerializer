@@ -1,10 +1,11 @@
 {
-  "version": "1.0.0-*",
-  "description": "CommonSerializer.Newtonsoft Class Library",
-  "authors": [ "Brannon King" ],
-  "tags": [ "serializer serialization common newtonsoft json.net" ],
-  "projectUrl": "https://github.com/BrannonKing/CommonSerializer",
-  "licenseUrl": "https://raw.githubusercontent.com/BrannonKing/CommonSerializer/master/LICENSE",
+	"version": "1.0.1-*",
+	"description": "CommonSerializer.Newtonsoft Class Library",
+	"authors": [ "Brannon King" ],
+	"tags": [ "serializer serialization common newtonsoft json.net" ],
+	"releaseNotes": "Added overload for RegisterSubtype",
+	"projectUrl": "https://github.com/BrannonKing/CommonSerializer",
+	"licenseUrl": "https://raw.githubusercontent.com/BrannonKing/CommonSerializer/master/LICENSE",
 
 	"frameworks": {
 		"net45": {
@@ -21,8 +22,8 @@
 			}
 		}
 	},
-    "dependencies": {
-        "CommonSerializer": "1.0.0-*",
-        "Newtonsoft.Json": "7.0.1"
-    }
+	"dependencies": {
+		"CommonSerializer": "1.0.1-*",
+		"Newtonsoft.Json": "7.0.1"
+	}
 }
