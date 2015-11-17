@@ -11,11 +11,11 @@ These serializers are supported:
 
 If there are others that you want supported, please file an issue requesting that.
 
-The first three serializers listed support a feature for partial serialization. Consider that you might want to deserialize an outer object first so that you can determine the right data type for some inner object. The recommended method for accomplishing this works like this:
+The first three serializers listed support a feature for partial serialization. Consider that you might want to deserialize an outer object first so that you can determine the right data type for some inner object. The recommended method for accomplishing this works like this. You deserialize the thing twice -- the second time after you know the right data type:
 
 ```csharp
 [DataContract]
-public class RemoteProcedureCall
+public class RemoteProcedureCall // deserialize me first
 {
    [DataMember(Order = 1)]
    public string MethodName {get;set;}
