@@ -12,8 +12,7 @@
         "framework": "DNX,Version=v4.5.1",
         "dependencies": {
           "CommonSerializer": "1.0.0",
-          "Jil": "2.12.1",
-          "Microsoft.IO.RecyclableMemoryStream": "1.1.0"
+          "Jil": "2.12.1"
         }
       },
       "CommonSerializer.MsgPack.Cli/1.0.0": {
@@ -361,8 +360,7 @@
         "framework": "DNX,Version=v4.5.1",
         "dependencies": {
           "CommonSerializer": "1.0.0",
-          "Jil": "2.12.1",
-          "Microsoft.IO.RecyclableMemoryStream": "1.1.0"
+          "Jil": "2.12.1"
         }
       },
       "CommonSerializer.MsgPack.Cli/1.0.0": {
@@ -710,8 +708,7 @@
         "framework": "DNX,Version=v4.5.1",
         "dependencies": {
           "CommonSerializer": "1.0.0",
-          "Jil": "2.12.1",
-          "Microsoft.IO.RecyclableMemoryStream": "1.1.0"
+          "Jil": "2.12.1"
         }
       },
       "CommonSerializer.MsgPack.Cli/1.0.0": {

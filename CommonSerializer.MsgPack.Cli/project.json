@@ -2,9 +2,10 @@
 	"version": "1.0.0-*",
 	"description": "CommonSerializer.MsgPack.Cli Class Library",
 	"authors": [ "Brannon King" ],
-	"tags": [ "" ],
-	"projectUrl": "",
-	"licenseUrl": "",
+  "tags": [ "serializer serialization common msgpack messagepack msgpack.cli" ],
+  "projectUrl": "https://github.com/BrannonKing/CommonSerializer",
+  "licenseUrl": "https://raw.githubusercontent.com/BrannonKing/CommonSerializer/master/LICENSE",
+
 	"frameworks": {
         "net45": {
             "dependencies": {

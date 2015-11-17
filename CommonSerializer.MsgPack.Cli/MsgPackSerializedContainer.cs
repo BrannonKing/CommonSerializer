@@ -49,24 +49,16 @@ namespace CommonSerializer.MsgPack.Cli
 			while (((MsgPackSerializedContainer)objectTree).Queue.TryDequeue(out bytes))
 				list.Add(bytes);
 
-			packer.PackArrayHeader(list);
-			packer.PackArray(list);
+			packer.Pack(list);
 		}
 
 		protected override ISerializedContainer UnpackFromCore(Unpacker unpacker)
 		{
 			var ret = new MsgPackSerializedContainer();
-			long arrayLen;
-			if (!unpacker.ReadArrayLength(out arrayLen))
-				return ret;
+			var list = unpacker.Unpack<List<byte[]>>();
 
-			for (int i = 0; i < arrayLen; i++)
-			{
-				byte[] arr;
-				if (!unpacker.ReadBinary(out arr))
-					continue;
-				ret.Queue.Enqueue(arr);
-			}
+			foreach (var bytes in list)
+				ret.Queue.Enqueue(bytes);
 
 			return ret;
 		}
