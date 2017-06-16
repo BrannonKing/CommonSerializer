@@ -22,6 +22,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="xunit" Version="2.2.0" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\CommonSerializer\CommonSerializer.csproj" />
     <ProjectReference Include="..\CommonSerializer.Jil\CommonSerializer.Jil.csproj" />
     <ProjectReference Include="..\CommonSerializer.MsgPack.Cli\CommonSerializer.MsgPack.Cli.csproj" />

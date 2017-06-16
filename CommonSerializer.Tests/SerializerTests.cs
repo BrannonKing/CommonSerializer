@@ -8,11 +8,10 @@ using CommonSerializer.MsgPack.Cli;
 using CommonSerializer.Newtonsoft.Json;
 using CommonSerializer.PowerJSON;
 using CommonSerializer.ProtobufNet;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Xunit;
 
 namespace CommonSerializer.Tests
 {
-	[TestClass]
 	public class SerializerTests
 	{
 		private IEnumerable<ICommonSerializer> Serializers
@@ -21,13 +20,13 @@ namespace CommonSerializer.Tests
 			{
 				yield return new JsonCommonSerializer();
 				yield return new ProtobufCommonSerializer();
-				yield return new JilCommonSerializer();
+				//yield return new JilCommonSerializer(); I guess .net 4.7 doesn't actually support netstandard 1.6
 				yield return new MsgPackCommonSerializer();
 				yield return new PowerJsonCommonSerializer();
 			}
 		}
 
-		[TestMethod]
+		[Fact]
 		public void RoundTrip()
 		{
 			var data = new TestData
@@ -82,7 +81,7 @@ namespace CommonSerializer.Tests
 			}
 		}
 
-		[TestMethod]
+		[Fact]
 		public void RoundTripWithType()
 		{
 			var data = new TestData
@@ -139,30 +138,30 @@ namespace CommonSerializer.Tests
 
 		private void VerifyEqual(TestData data, TestData result)
 		{
-			Assert.AreEqual(data.Children, result.Children);
-			Assert.AreNotEqual(data.DontGo, result.DontGo);
-			Assert.AreEqual(data.TestBool, result.TestBool);
-			Assert.AreEqual(data.TestByte, result.TestByte);
-			Assert.AreEqual(data.TestByteArray, result.TestByteArray);
-			Assert.AreEqual(data.TestChar, result.TestChar);
-			Assert.AreEqual(data.TestDateTime, result.TestDateTime);
-			Assert.AreEqual(data.TestDecimal, result.TestDecimal);
-			Assert.AreEqual(data.TestDouble, result.TestDouble);
-			Assert.AreEqual(data.TestInt, result.TestInt);
-			Assert.AreEqual(data.TestList, result.TestList);
-			Assert.AreEqual(data.TestLong, result.TestLong);
-			Assert.AreEqual(data.TestShort, result.TestShort);
-			Assert.AreEqual(data.TestString, result.TestString);
-			Assert.AreEqual(data.TestuInt, result.TestuInt);
+			Assert.Equal(data.Children, result.Children);
+			Assert.NotEqual(data.DontGo, result.DontGo);
+			Assert.Equal(data.TestBool, result.TestBool);
+			Assert.Equal(data.TestByte, result.TestByte);
+			Assert.Equal(data.TestByteArray, result.TestByteArray);
+			Assert.Equal(data.TestChar, result.TestChar);
+			Assert.Equal(data.TestDateTime, result.TestDateTime);
+			Assert.Equal(data.TestDecimal, result.TestDecimal);
+			Assert.Equal(data.TestDouble, result.TestDouble);
+			Assert.Equal(data.TestInt, result.TestInt);
+			Assert.Equal(data.TestList, result.TestList);
+			Assert.Equal(data.TestLong, result.TestLong);
+			Assert.Equal(data.TestShort, result.TestShort);
+			Assert.Equal(data.TestString, result.TestString);
+			Assert.Equal(data.TestuInt, result.TestuInt);
 		}
 
-		[TestMethod]
+		[Fact]
 		public void TestPartialCreation()
 		{
 			foreach (var serializer in Serializers.OfType<ICommonSerializerWithContainer>())
 			{
 				var container = serializer.GenerateContainer();
-				Assert.IsTrue(container.CanWrite);
+				Assert.True(container.CanWrite);
 
 				serializer.Serialize(container, "howdy");
 				serializer.Serialize(container, 42);
@@ -170,8 +169,8 @@ namespace CommonSerializer.Tests
 				var st = new SubTestData { Name = "nm1" };
 				serializer.Serialize(container, st);
 
-				Assert.AreEqual(4, container.Count);
-				Assert.IsTrue(container.CanWrite);
+				Assert.Equal(4, container.Count);
+				Assert.True(container.CanWrite);
 
 				var wrapper = new ContainerWrapper { Container = container };
 
@@ -184,13 +183,13 @@ namespace CommonSerializer.Tests
 				}
 
 				container = wrapper2.Container;
-				Assert.IsTrue(container.CanRead);
-				Assert.AreEqual("howdy", serializer.Deserialize<string>(container));
-				Assert.AreEqual(42, serializer.Deserialize<int>(container));
-				Assert.AreEqual(101.7, serializer.Deserialize<double>(container));
-				Assert.AreEqual(st, serializer.Deserialize<SubTestData>(container));
+				Assert.True(container.CanRead);
+				Assert.Equal("howdy", serializer.Deserialize<string>(container));
+				Assert.Equal(42, serializer.Deserialize<int>(container));
+				Assert.Equal(101.7, serializer.Deserialize<double>(container));
+				Assert.Equal(st, serializer.Deserialize<SubTestData>(container));
 
-				Assert.IsFalse(container.CanRead);
+				Assert.False(container.CanRead);
 			}
 		}
 	}
