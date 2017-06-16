@@ -8,7 +8,7 @@
     <AssemblyName>CommonSerializer.Newtonsoft.Json</AssemblyName>
     <PackageId>CommonSerializer.Newtonsoft.Json</PackageId>
     <PackageTags>serializer serialization common newtonsoft json.net</PackageTags>
-    <PackageReleaseNotes>Added overload for RegisterSubtype</PackageReleaseNotes>
+    <PackageReleaseNotes>upgraded to netstandard</PackageReleaseNotes>
     <PackageProjectUrl>https://github.com/BrannonKing/CommonSerializer</PackageProjectUrl>
     <PackageLicenseUrl>https://raw.githubusercontent.com/BrannonKing/CommonSerializer/master/LICENSE</PackageLicenseUrl>
     <GenerateAssemblyTitleAttribute>false</GenerateAssemblyTitleAttribute>
@@ -17,6 +17,7 @@
     <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
     <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
     <GenerateAssemblyCopyrightAttribute>false</GenerateAssemblyCopyrightAttribute>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>
