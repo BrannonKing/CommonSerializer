@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Description>CommonSerializer Base Class Library</Description>
+    <VersionPrefix>1.1.1</VersionPrefix>
+    <Authors>Brannon King</Authors>
+    <TargetFrameworks>netstandard1.4</TargetFrameworks>
+    <AssemblyName>CommonSerializer</AssemblyName>
+    <PackageId>CommonSerializer</PackageId>
+    <PackageTags>serializer serialization common</PackageTags>
+    <PackageReleaseNotes>Added overload for RegisterSubtype</PackageReleaseNotes>
+    <PackageProjectUrl>https://github.com/BrannonKing/CommonSerializer</PackageProjectUrl>
+    <PackageLicenseUrl>https://raw.githubusercontent.com/BrannonKing/CommonSerializer/master/LICENSE</PackageLicenseUrl>
+    <GenerateAssemblyTitleAttribute>false</GenerateAssemblyTitleAttribute>
+    <GenerateAssemblyDescriptionAttribute>false</GenerateAssemblyDescriptionAttribute>
+    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+    <GenerateAssemblyCopyrightAttribute>false</GenerateAssemblyCopyrightAttribute>
+  </PropertyGroup>
+
+</Project>
