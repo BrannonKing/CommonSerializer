@@ -31,96 +31,108 @@ namespace CommonSerializer.Jil
 			}
 		}
 
-		public bool StreamsUtf8
-		{
-			get
-			{
-				return true;
-			}
-		}
+        public bool StreamsUtf8
+        {
+            get
+            {
+                return true;
+            }
+        }
 
-		public T DeepClone<T>(T t)
-		{
-			using (var ms = new MemoryStream())
-			{
-				_serializer.SerializeDirect(ms, t);
-				ms.Position = 0;
-				_serializer.DeserializeDirect<T>(ms, out var ret);
-				return ret;
-			}
-		}
+        public T DeepClone<T>(T t)
+        {
+            using (var ms = new MemoryStream())
+            {
+                _serializer.SerializeDirect(ms, t);
+                ms.Position = 0;
+                _serializer.DeserializeDirect<T>(ms, out var value);
+                return value;
+            }
+        }
 
-		public T Deserialize<T>(Stream stream)
-		{
-			return (T)_serializer.Deserialize(stream);
-		}
+        public T Deserialize<T>(Stream stream)
+        {
+            _serializer.DeserializeDirect<T>(stream, out var value);
+            return value;
+        }
 
-		public T Deserialize<T>(TextReader reader)
-		{
-			var text = reader.ReadToEnd(); // if there were multiple objects in a single stream, we wouldn't want to do it this way
-			using(var stream = new StringReader(text))
-			_serializer.Deserialize()
-		}
+        public object Deserialize(TextReader reader, Type type)
+        {
+            var line = reader.ReadLine();
+            if (line == null)
+                return null;
+            var bytes = Convert.FromBase64String(line);
+            using (var ms = new MemoryStream(bytes, false))
+                return Deserialize(ms, type);
+        }
 
-		public T Deserialize<T>(string str)
-		{
-			throw new NotImplementedException();
-		}
+        public T Deserialize<T>(string str)
+        {
+            using (var reader = new StringReader(str))
+                return (T)Deserialize(reader, typeof(T));
+        }
 
-		public object Deserialize(Stream stream, Type type)
-		{
+        public object Deserialize(Stream stream, Type type)
+        {
+            return _serializer.Deserialize(stream); // TODO: convert to target type?
+        }
 
-			throw new NotImplementedException();
-		}
+        public object Deserialize(string str, Type type)
+        {
+            using (var reader = new StringReader(str))
+                return Deserialize(reader, type);
+        }
 
-		public object Deserialize(TextReader reader, Type type)
-		{
-			throw new NotImplementedException();
-		}
+        public T Deserialize<T>(TextReader reader)
+        {
+            return (T)Deserialize(reader, typeof(T));
+        }
 
-		public object Deserialize(string str, Type type)
-		{
-			throw new NotImplementedException();
-		}
+        public void RegisterSubtype<TBase, TInheritor>(int fieldNumber = -1)
+        {
+        }
 
-		public void RegisterSubtype<TBase, TInheritor>(int fieldNumber = -1)
-		{
-			_serializer.AddTypes(new[] { typeof(TBase), typeof(TInheritor) });
-		}
+        public void RegisterSubtype<TBase>(Type inheritor, int fieldNumber = -1)
+        {
+        }
 
-		public void RegisterSubtype<TBase>(Type inheritor, int fieldNumber = -1)
-		{
-			_serializer.AddTypes(new[] { typeof(TBase), inheritor });
-		}
+        public void Serialize<T>(Stream stream, T value)
+        {
+            _serializer.Serialize(stream, value);
+        }
 
-		public void Serialize<T>(Stream stream, T value)
-		{
-			_serializer.Serialize(stream, value);
-		}
+        public void Serialize<T>(TextWriter writer, T value)
+        {
+            Serialize(writer, value, typeof(T));
+        }
 
-		public void Serialize<T>(TextWriter writer, T value)
-		{
-			throw new NotImplementedException();
-		}
+        public string Serialize<T>(T value)
+        {
+            return Serialize(value, typeof(T));
+        }
 
-		public string Serialize<T>(T value)
-		{
-			throw new NotImplementedException();
-		}
+        public void Serialize(Stream stream, object value, Type type)
+        {
+            _serializer.Serialize(stream, value);
+        }
 
-		public void Serialize(Stream stream, object value, Type type)
-		{
-			throw new NotImplementedException();
-		}
+        public void Serialize(TextWriter writer, object value, Type type)
+        {
+            using (var stream = new MemoryStream())
+            {
+                Serialize(stream, value, type);
+                stream.Flush();
+                var base64 = Convert.ToBase64String(stream.ToArray());
+                writer.Write(base64);
+            }
+        }
 
-		public void Serialize(TextWriter writer, object value, Type type)
-		{
-			throw new NotImplementedException();
-		}
-
-		public string Serialize(object value, Type type)
-		{
-			throw new NotImplementedException();
-		}
-	}
+        public string Serialize(object value, Type type)
+        {
+            var sb = new StringBuilder();
+            using (var stringWriter = new StringWriter(sb))
+                Serialize(stringWriter, value, type);
+            return sb.ToString();
+        }
+    }
 }

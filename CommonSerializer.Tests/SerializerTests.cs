@@ -19,10 +19,10 @@ namespace CommonSerializer.Tests
 		{
 			get
 			{
-				yield return new WireCommonSerializer();
+				//yield return new WireCommonSerializer();
 				yield return new JsonCommonSerializer();
 				yield return new ProtobufCommonSerializer();
-				yield return new JilCommonSerializer();
+				//yield return new JilCommonSerializer();
 				yield return new MsgPackCommonSerializer();
 				yield return new PowerJsonCommonSerializer();
 			}

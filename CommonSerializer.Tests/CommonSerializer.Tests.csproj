@@ -27,6 +27,7 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="Jil" Version="2.15.2" />
     <PackageReference Include="more.xunit.runner.visualstudio" Version="2.2.2" />
     <PackageReference Include="Wire" Version="0.8.2" />
     <PackageReference Include="xunit" Version="2.2.0" />
@@ -39,6 +40,7 @@
     <ProjectReference Include="..\CommonSerializer.Newtonsoft.Json\CommonSerializer.Newtonsoft.Json.csproj" />
     <ProjectReference Include="..\CommonSerializer.PowerJSON\CommonSerializer.PowerJSON.csproj" />
     <ProjectReference Include="..\CommonSerializer.Protobuf-net\CommonSerializer.Protobuf-net.csproj" />
+    <ProjectReference Include="..\ComonSerializer.NetSerializer\ComonSerializer.NetSerializer.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{82a7f48d-3b50-4b1e-b82e-3ada8210c358}" />
