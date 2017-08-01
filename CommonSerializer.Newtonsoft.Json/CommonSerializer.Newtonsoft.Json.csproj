@@ -1,10 +1,9 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-
+﻿<Project Sdk="Microsoft.NET.Sdk" ToolsVersion="15.0">
   <PropertyGroup>
     <Description>CommonSerializer.Newtonsoft Class Library</Description>
     <VersionPrefix>1.1.1</VersionPrefix>
     <Authors>Brannon King</Authors>
-    <TargetFrameworks>netstandard1.4</TargetFrameworks>
+    <TargetFrameworks>netstandard2</TargetFrameworks>
     <AssemblyName>CommonSerializer.Newtonsoft.Json</AssemblyName>
     <PackageId>CommonSerializer.Newtonsoft.Json</PackageId>
     <PackageTags>serializer serialization common newtonsoft json.net</PackageTags>
@@ -17,14 +16,16 @@
     <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
     <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
     <GenerateAssemblyCopyrightAttribute>false</GenerateAssemblyCopyrightAttribute>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>2.0</OldToolsVersion>
   </PropertyGroup>
-
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="10.0.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
   </ItemGroup>
-
   <ItemGroup>
     <ProjectReference Include="..\CommonSerializer\CommonSerializer.csproj" />
   </ItemGroup>
-
 </Project>

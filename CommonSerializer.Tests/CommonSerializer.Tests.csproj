@@ -1,5 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-
+﻿<Project Sdk="Microsoft.NET.Sdk" ToolsVersion="15.0">
   <PropertyGroup>
     <Description>CommonSerializer.Tests Class Library</Description>
     <VersionPrefix>1.1.1</VersionPrefix>
@@ -14,14 +13,26 @@
     <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
     <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
     <GenerateAssemblyCopyrightAttribute>false</GenerateAssemblyCopyrightAttribute>
+    <ProjectGuid>{2BE300EC-3975-4DCA-B505-51F3D503A5E0}</ProjectGuid>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
   </PropertyGroup>
-
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <PlatformTarget>x64</PlatformTarget>
-	<DebugType>Full</DebugType>
+    <DebugType>Full</DebugType>
   </PropertyGroup>
-
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="more.xunit.runner.visualstudio" Version="2.2.2" />
+    <PackageReference Include="Wire" Version="0.8.2" />
+    <PackageReference Include="xunit" Version="2.2.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CommonSerializer.Wire\CommonSerializer.Wire.csproj" />
     <ProjectReference Include="..\CommonSerializer\CommonSerializer.csproj" />
     <ProjectReference Include="..\CommonSerializer.Jil\CommonSerializer.Jil.csproj" />
     <ProjectReference Include="..\CommonSerializer.MsgPack.Cli\CommonSerializer.MsgPack.Cli.csproj" />
@@ -29,9 +40,7 @@
     <ProjectReference Include="..\CommonSerializer.PowerJSON\CommonSerializer.PowerJSON.csproj" />
     <ProjectReference Include="..\CommonSerializer.Protobuf-net\CommonSerializer.Protobuf-net.csproj" />
   </ItemGroup>
-
   <ItemGroup>
     <Service Include="{82a7f48d-3b50-4b1e-b82e-3ada8210c358}" />
   </ItemGroup>
-
 </Project>

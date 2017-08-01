@@ -1,10 +1,9 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-
+﻿<Project Sdk="Microsoft.NET.Sdk" ToolsVersion="15.0">
   <PropertyGroup>
     <Description>CommonSerializer.PowerJSON Class Library</Description>
     <VersionPrefix>1.1.1</VersionPrefix>
     <Authors>Brannon.King</Authors>
-    <TargetFrameworks>net461</TargetFrameworks>
+    <TargetFrameworks>netstandard2</TargetFrameworks>
     <AssemblyName>CommonSerializer.PowerJSON</AssemblyName>
     <PackageId>CommonSerializer.PowerJSON</PackageId>
     <PackageTags>serializer serialization common powerjson fastjson</PackageTags>
@@ -17,14 +16,16 @@
     <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
     <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
     <GenerateAssemblyCopyrightAttribute>false</GenerateAssemblyCopyrightAttribute>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>2.0</OldToolsVersion>
   </PropertyGroup>
-
   <ItemGroup>
     <PackageReference Include="PowerJSON" Version="2.5.0.1" />
   </ItemGroup>
-
   <ItemGroup>
     <ProjectReference Include="..\CommonSerializer\CommonSerializer.csproj" />
   </ItemGroup>
-
 </Project>

@@ -1,7 +1,6 @@
-
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26114.2
+VisualStudioVersion = 15.0.26724.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{363E19B3-F20F-42FF-9C0E-8E929EB9D79A}"
 	ProjectSection(SolutionItems) = preProject
@@ -21,6 +20,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonSerializer.Jil", "CommonSerializer.Jil\CommonSerializer.Jil.csproj", "{E79FDCC3-B588-481D-A8D3-AE19DEC9BDA5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonSerializer.PowerJSON", "CommonSerializer.PowerJSON\CommonSerializer.PowerJSON.csproj", "{10092C1A-AF00-40FD-BC39-E233EF647A45}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ComonSerializer.NetSerializer", "ComonSerializer.NetSerializer\ComonSerializer.NetSerializer.csproj", "{7881776A-8765-423C-B6D7-DCE9384CFB9A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonSerializer.Wire", "CommonSerializer.Wire\CommonSerializer.Wire.csproj", "{7E41CFF2-EA85-4D35-BB94-E037EE48A65F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -56,8 +59,19 @@ Global
 		{10092C1A-AF00-40FD-BC39-E233EF647A45}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{10092C1A-AF00-40FD-BC39-E233EF647A45}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{10092C1A-AF00-40FD-BC39-E233EF647A45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7881776A-8765-423C-B6D7-DCE9384CFB9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7881776A-8765-423C-B6D7-DCE9384CFB9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7881776A-8765-423C-B6D7-DCE9384CFB9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7881776A-8765-423C-B6D7-DCE9384CFB9A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E41CFF2-EA85-4D35-BB94-E037EE48A65F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E41CFF2-EA85-4D35-BB94-E037EE48A65F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E41CFF2-EA85-4D35-BB94-E037EE48A65F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E41CFF2-EA85-4D35-BB94-E037EE48A65F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9869F39D-6F48-4AB5-A617-025137580FF1}
 	EndGlobalSection
 EndGlobal
